@@ -1,0 +1,70 @@
+.article{
+    border-radius: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20.5vw;
+    height: 28.5vw;
+    
+}
+.headerOverlay{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.name {
+    font-family: 'F1-BOLD';
+    font-size: 1.25vw;
+    margin: 0.5vw 0vw;
+    position:absolute;
+    background-color: #dc0000;
+    padding: 0.35vw 1vw;
+    border-top-left-radius: 0.5vw;
+    border-top-right-radius: 0.5vw;
+}
+.darkGradient{
+    transition: all 0.5s ease-in-out;
+    background: linear-gradient(180deg, #1e1e2d 70%, rgba(43, 43, 61, 0.74) 100%);
+    box-shadow: 0px 0px 40px 5px #2c2c3da5;
+}
+.normalGradient{
+    transition: all 0.5s ease-in-out;
+    background: linear-gradient(180deg, #ffffff 70%, rgba(203, 203, 203, 0.67) 100%);
+    box-shadow: 0px 0px 40px 5px rgba(175, 175, 175, 0.531);
+}
+.img{
+    margin: 0px;
+    width: 20.5vw;
+    height: 21vw;
+    border-radius: 0.5vw;
+    border-bottom: 0.5vw #dc0000 solid; 
+}
+
+.figure{
+    padding: 0px;
+    margin: 0px;
+    margin-block: 0px;
+    margin-inline: 0px;
+}
+.footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.teams {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+}
+.escuderias{
+    margin: 0.7vw 0vw;
+    font-size: 0.9vw;
+}
+.teamName{
+    padding: 0.15vw;
+    font-size: 0.8vw;
+}

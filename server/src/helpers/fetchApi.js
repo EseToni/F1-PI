@@ -2,7 +2,6 @@ const axios = require('axios');
 
 const getDriversApi = async (id, name) => {
 	let URL = `http://localhost:5000/drivers`;
-	let drivers;
 	if (id) {
 		URL += `/${id}`;
 	}
@@ -16,27 +15,39 @@ const getDriversApi = async (id, name) => {
 			if (data.image.url.length === 0) {
 				data.image.url =
 					'https://www.pngitem.com/pimgs/m/421-4212617_person-placeholder-image-transparent-hd-png-download.png';
-				return data;
 			}
-			return data;
+			return {
+				id: data.id,
+				name: data.name.forename,
+				lastname: data.name.surname,
+				image: data.image.url,
+				description: data.description,
+				nacionality: data.nacionality,
+				dateOfBirth: data.dob,
+				teams: data.teams?.split(','),
+			};
 		}
-		if (name) {
-			drivers = data.filter((driver) => {
-				return driver.name.forename.toLowerCase().includes(name.toLowerCase());
-			});
-		} 
-		else if (!name) {     
-			console.log('----------------> entro');
-			drivers = data;          //bug here  <----------------------------------- 
-		}
-		drivers = drivers.map((driver) => {
+		var drivers = data.map((driver) => {
 			if (driver.image.url.length === 0) {
 				driver.image.url =
 					'https://www.pngitem.com/pimgs/m/421-4212617_person-placeholder-image-transparent-hd-png-download.png';
-				return driver;
 			}
-			return driver;
+			return {
+				id: driver.id,
+				name: driver.name.forename,
+				lastname: driver.name.surname,
+				image: driver.image.url,
+				description: driver.description,
+				nacionality: driver.nacionality,
+				dateOfBirth: driver.dob,
+				teams: driver.teams?.split(','),
+			};
 		});
+		if (name) {
+			drivers = drivers.filter((driver) => {
+				return driver.name.toLowerCase().includes(name.toLowerCase());
+			});
+		}
 		return drivers;
 	} catch (error) {
 		console.log({ error: error.message });
@@ -51,8 +62,8 @@ const getAllTeams = async () => {
 		if (!driver.teams) {
 			return;
 		}
-		if (driver.teams.includes(',')) {
-			driver.teams.split(',').forEach((team) => {
+		if (driver.teams) {
+			driver.teams.forEach((team) => {
 				teams.add(team);
 			});
 		}

@@ -1,0 +1,12 @@
+.summary{
+    font-size: 1vw;
+    margin-top: 0.5vw;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    max-height: 300px;
+    overflow-y: auto;
+    justify-content: flex-start;
+    padding-top: 0.5vw;
+}

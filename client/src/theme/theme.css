@@ -1,0 +1,131 @@
+/* Fondos en Modo Normal */
+
+.normal-bg-white {
+	transition: all 0.5s ease-in-out;
+	background-color: #f6f6f6;
+}
+.normal-bg-white h1{
+	transition: all 0.5s ease-in-out;
+	color: #14141e;
+}
+.normal-bg-white h3{
+	transition: all 0.5s ease-in-out;
+	color: #1e1e2d;
+}
+.normal-bg-white span{
+	transition: all 0.5s ease-in-out;
+	color: #1e1e2d;
+}
+.normal-bg-gray {
+    transition: all 0.5s ease-in-out;
+    background-color: #c7c7c7a7
+}
+.normal-bg-white button {
+	transition: all 0.5s ease-in-out;
+	color: #1e1e2d;
+	background-color: #c7c7c7a7;
+}
+.normal-bg-white button:disabled {
+	transition: all 0.5s ease-in-out;
+	color: #1e1e2d71;
+	background-color: #c7c7c751;
+}
+.normal-bg-white summary{
+	transition: all 0.5s ease-in-out;
+	color: #1e1e2d;
+}
+.normal-bg-white label{
+	transition: all 0.5s ease-in-out;
+	color: #1e1e2d;
+}
+
+/* Fondos en Modo Oscuro */
+.dark-bg-night-blue {
+	transition: all 0.5s ease-in-out;
+	background-color: #1e1e2d;
+}
+.dark-bg-night-blue h1 {
+	transition: all 0.5s ease-in-out;
+	color: #f6f6f6;
+}
+.dark-bg-night-blue h3 {
+	transition: all 0.5s ease-in-out;
+	color: #f6f6f6;
+}
+.dark-bg-night-blue span {
+	transition: all 0.5s ease-in-out;
+	color: #f6f6f6;
+}
+.dark-bg-night-blue button {
+	transition: all 0.5s ease-in-out;
+	color: #f6f6f6;
+	background-color: #3232489a;
+}
+.dark-bg-night-blue button:disabled {
+	transition: all 0.5s ease-in-out;
+	color: #f6f6f688;
+	background-color: #32324855;
+}
+.dark-bg-night-blue summary {
+	transition: all 0.5s ease-in-out;
+	color: #f6f6f6;
+}
+.dark-bg-night-blue label {
+	transition: all 0.5s ease-in-out;
+	color: #f6f6f6;
+}
+
+.dark-bg-dark-gray {
+    transition: all 0.5s ease-in-out;
+	background-color: #2b2b3dbd;
+}
+
+/* Colores de Texto en Modo Normal */
+.normal-text-red {
+	color: #dc0000;
+}
+
+.normal-text-white {
+	color: #ffffff;
+}
+
+.normal-text-black {
+	color: #000000;
+}
+
+.normal-text-silver {
+	color: #00d2be;
+}
+
+/* Colores de Texto en Modo Oscuro */
+.dark-text-night-blue {
+	color: #1e1e2d;
+}
+
+.dark-text-yellow {
+	color: #ffd100;
+}
+
+.dark-text-dark-gray {
+	color: #333333;
+}
+
+.dark-text-neon-green {
+	color: #00ff48;
+}
+
+
+
+/* Modo Normal:
+
+Rojo F1: #DC0000 - El rojo es un color icónico de la Fórmula 1 y puede usarse para resaltar elementos importantes en la página.
+Blanco: #FFFFFF - El blanco se usa comúnmente como fondo para el contenido principal, lo que facilita la lectura del texto.
+Negro: #000000 - El negro puede ser utilizado en el encabezado y el pie de página, proporcionando un aspecto elegante.
+Plata Mercedes: #00D2BE - El color plata se asocia a menudo con la sofisticación y la tecnología avanzada, similar al equipo Mercedes.
+
+Modo Oscuro:
+
+Azul Nocturno: #1E1E2D - Un fondo azul oscuro puede ser agradable para la vista en modo oscuro y proporcionar un ambiente nocturno.
+Amarillo Destacado: #FFD100 - El amarillo puede ser un color de contraste utilizado para resaltar elementos importantes en modo oscuro.
+Gris Oscuro: #333333 - El gris oscuro puede usarse como fondo para ciertos elementos en modo oscuro y proporcionar contraste.
+Verde Neón: #00FF48 - Un verde brillante y neón puede usarse para resaltar elementos específicos en modo oscuro, creando un aspecto llamativo. */

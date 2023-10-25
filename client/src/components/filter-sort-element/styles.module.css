@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 0.2vw 4vw;
+  }
+
+.input  {
+    appearance: none;
+    border: 0.1vw solid black;
+    border-radius: 0.2vw;
+    width: 1vw;
+    height: 1vw;
+    margin-right: 0.5vw;
+}
+
+.input:checked::before {
+    content: '✔';
+    font-size: 0.9vw;
+    color: white;
+    background-color: red;
+    border-radius: 0.2vw;
+    border: 0.1vw solid black;
+    transform: scale(1.2);
+    width: 1vw;
+    height: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+.label{
+    font-size: 1vw;
+}
+.input:checked + .label {
+    transform: scale(1.2);
+    margin: 0vw 1vw;
+}

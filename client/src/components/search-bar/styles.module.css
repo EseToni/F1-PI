@@ -1,0 +1,17 @@
+.icon{
+    width: 2vw;
+    height: 2vw;
+}
+.input {
+    width: 20vw;
+    height: 3vw;
+    outline: none;
+    border: none;
+    border-radius: 0.5vw;
+}
+
+.label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

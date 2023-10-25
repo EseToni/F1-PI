@@ -1,0 +1,18 @@
+
+.container{
+    margin: 0px 4vw;
+}
+
+.button{
+    margin: 0vw 1vw;
+    padding: 0.5vw;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.2vw;
+    font-family: 'F1-REGULAR';
+    font-size: 0.8vw;
+}
+
+.button:disabled{
+    cursor: auto;
+}
