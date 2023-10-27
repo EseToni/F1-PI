@@ -12,6 +12,7 @@
     width: 1vw;
     height: 1vw;
     margin-right: 0.5vw;
+    cursor: pointer;
 }
 
 .input:checked::before {
@@ -32,8 +33,18 @@
 
 .label{
     font-size: 1vw;
+    cursor: pointer;
 }
 .input:checked + .label {
     transform: scale(1.2);
     margin: 0vw 1vw;
+}
+.checked {
+  transform: scale(1.2);
+  margin: 0vw 1vw;
+}
+
+.containerSorts{
+  display: flex;
+  flex-direction: column;
 }

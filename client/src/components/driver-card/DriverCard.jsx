@@ -1,17 +1,18 @@
 import styles from './styles.module.css';
-import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 const DriverCard = ({ name, lastname, image, teams, id, isDarkMode }) => {
+	const navigate = useNavigate();
 	const backgroundClass = isDarkMode ? 'dark-bg-dark-gray' : 'normal-bg-gray';
-	const backGroundRadient = isDarkMode
-		? styles.darkGradient
-		: styles.normalGradient;
-	const isLoading = useSelector((state) => state.driverReducer.isLoading);
+	const backGroundRadient = isDarkMode? styles.darkGradient : styles.normalGradient;
 
 	const teamsArray = teams ? teams : ['Ninguna'];
-
+	const onClickNavigate = () => {
+		navigate(`/home/driver/${id}`);
+	};
 	return (
 		<article
 			className={`${backgroundClass} ${styles.article} ${backGroundRadient}`}
+			onClick={onClickNavigate}
 		>
 			<header className={styles.headerOverlay}>
 				<figure className={styles.figure}>

@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import DriversMain from '../drivers-main/DriversMain';
 import FilterSortMain from '../filter-sort-main/FilterSortMain';
 import { useTheme } from '../../theme/ThemeProvider';
+import { Outlet } from 'react-router-dom';
 const Home = () => {
 	const { isDarkMode } = useTheme();
 	const borderClass = isDarkMode ? styles.darkBorder : styles.normalBorder;
@@ -13,7 +14,7 @@ const Home = () => {
 			</header>
 			<NavBar />
 			<FilterSortMain isDarkMode={isDarkMode}/>
-			<DriversMain />
+			<Outlet/>
 		</div>
 	);
 };

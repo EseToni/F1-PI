@@ -2,23 +2,24 @@ import styles from './styles.module.css';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
-const FilterSortElement = ({ name, actionAdd, actionRemove, actionFilter }) => {
+const FilterElement = ({ name, actionAdd, actionRemove }) => {
 	const dispatch = useDispatch();
 	const [checked, setChecked] = useState(false);
-    
+	const classChecked = checked ? styles.checked : null;
 	const handleCheck = () => {
-        if(!checked){
-            dispatch(actionAdd(name));
-            dispatch(actionFilter());
-        }else{
-            dispatch(actionRemove(name));
-            dispatch(actionFilter());
-        }
-        setChecked(!checked);
+		if (!checked) {
+			dispatch(actionAdd(name));
+		} else {
+			dispatch(actionRemove(name));
+		}
+		setChecked(!checked);
 	};
 
 	return (
 		<div className={styles.container}>
+			<label className={`${styles.label} ${classChecked} `} htmlFor={name}>
+				{name}
+			</label>
 			<input
 				className={styles.input}
 				type='checkbox'
@@ -28,11 +29,8 @@ const FilterSortElement = ({ name, actionAdd, actionRemove, actionFilter }) => {
 				checked={checked}
 				onChange={handleCheck}
 			/>
-			<label className={styles.label} htmlFor={name}>
-				{name}
-			</label>
 		</div>
 	);
 };
 
-export default FilterSortElement;
+export default FilterElement;

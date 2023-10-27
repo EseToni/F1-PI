@@ -1,13 +1,7 @@
-const requestData = () => {
-	return {
-		type: 'REQUEST_DATA',
-	};
-};
 import { esUUID } from '../../helpers/filterUUID';
 
 export const actionFetchTeams = () => {
 	return async (dispatch) => {
-		dispatch(requestData());
 		const data = await fetch('http://localhost:3001/teams');
 		const teams = await data.json();
 		dispatch({
@@ -45,41 +39,25 @@ export const actionRemoveOrigin = (origin) => {
 		payload: origin,
 	};
 };
+export const actionSortAdd = (type) => {
+	return {
+		type: 'SORTS_ADD',
+		payload: type,
+	};
+};
+export const actionSortRemove = () => {
+	return {
+		type: 'SORTS_REMOVE'
+	};
+};
 export const actionFilterByOrigin = () => {
 	return {
 		type: 'FILTER_BY_ORIGIN',
 		payload: esUUID,
 	};
 };
-export const actionSortAdd = (type) => {
+export const actionSort = () => {
 	return {
-		type: 'SORT_ADD',
-		payload: type,
-	};
-};
-export const actionSortRemove = (type) => {
-	return {
-		type: 'SORT_REMOVE',
-		payload: type,
-	};
-};
-export const actionSortNameAsc = () => {
-	return {
-		type: 'SORT_NAME_ASC',
-	};
-};
-export const actionSortNameDesc = () => {
-	return {
-		type: 'SORT_NAME_DESC',
-	};
-};
-export const actionSortAgeAsc = () => {
-	return {
-		type: 'SORT_AGE_ASC',
-	};
-};
-export const actionSortAgeDesc = () => {
-	return {
-		type: 'SORT_AGE_DESC',
+		type: 'SORTS_FILTER',
 	};
 };

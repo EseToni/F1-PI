@@ -1,8 +1,12 @@
 import styles from './styles.module.css';
-import DriversCards from '../../components/drivers-cards/driversCards';
+import MapDrivers from '../../components/MapDrivers/MapDrivers';
 import PaginateTop from '../../components/paginate-top/PaginateTop';
+import { useLocation } from 'react-router-dom';
 
 const DriversMain = () => {
+	const location = useLocation();
+	
+
 	return (
 		<div className={styles.mainContainer}>
 			<div className={styles.container}>
@@ -12,7 +16,7 @@ const DriversMain = () => {
 			<div>
 				<button>age x</button>
 			</div>
-			<DriversCards />
+			<MapDrivers />
 		</div>
 	);
 };
