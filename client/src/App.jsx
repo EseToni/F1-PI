@@ -13,8 +13,8 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Landing />} />
 				<Route path='/home' element={<Home />}>
-					<Route path='/home/driver/:driverId' element={<DriverDetail />} />
 					<Route path='/home/drivers' element={<DriversMain />} />
+					<Route path='/home/driver/:driverId' element={<DriverDetail />} />
 					<Route path='/home/create-driver' element={<CreateDriver />} />
 				</Route>
 			</Routes>

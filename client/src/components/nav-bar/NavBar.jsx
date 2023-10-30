@@ -11,7 +11,7 @@ const NavBar = () => {
 	return (
 		<nav className={`${styles.container} ${borderClass}`}>
 			<SearchBar />
-			<Link className='customLink'>
+			<Link className='customLink' to='/home/create-driver'>
 				<h3 className={styles.h3Driver}>Crea tu piloto</h3>
 			</Link>
 			<ToggleDarkMode 

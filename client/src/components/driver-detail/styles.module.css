@@ -1,0 +1,64 @@
+.containerNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.containerMain{
+    display: flex;
+    flex-direction: column;
+    height: 180.274vh;
+}
+.containerArticle{
+    display: flex;
+    flex-direction: row;
+    margin: 2vw 0vw 0vw 1vw;
+    padding: 2vh 0.8vh 2vh 0vh; 
+    border-radius: 0.5vw;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+.img{
+    width: 40vh;
+    height: 50vh;
+    min-height: 50vh;
+    min-width: 40vh;
+    border: 0.2vw solid #dc0000;
+    border-radius: 0.5vw;
+}
+.name {
+    font-family: 'F1-REGULAR';
+    font-size: 7vh ;
+    margin: 0vw ;
+    padding: 0vw ;
+}
+.button{
+    margin: 0vw 1vw;
+    padding: 0.5vw;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.2vw;
+    font-family: 'F1-REGULAR';
+    font-size: 0.8vw;
+    height: 4vh;
+}
+
+.button:disabled{
+    cursor: auto;
+}
+.darkGradient{
+    transition: all 0.5s ease-in-out;
+    background: linear-gradient(120deg, #1e1e2d 40%, rgba(43, 43, 61, 0.74) 70%);
+    box-shadow: 50px 20px 40px 5px #2c2c3da5;
+}
+.normalGradient{
+    transition: all 0.5s ease-in-out;
+    background: linear-gradient(120deg, #ffffff 40%, rgba(203, 203, 203, 0.67) 70%);
+    box-shadow: 0px 40px 40px 5px rgba(175, 175, 175, 0.531);
+}

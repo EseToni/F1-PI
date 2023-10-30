@@ -1,6 +1,8 @@
 import styles from './styles.module.css';
 import Filters from '../../components/filters/Filters';
-const FilterSortMain = ({ isDarkMode }) => {
+import { useTheme } from '../../theme/ThemeProvider';
+const FilterSortMain = () => {
+	const{isDarkMode} = useTheme();
 	const borderClass = isDarkMode ? styles.darkBorder : styles.normalBorder;
 
 	return (

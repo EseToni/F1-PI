@@ -16,7 +16,7 @@ const Landing = () => {
 	return (
 		<div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
 			Landing
-			<Link to={'/home'}>
+			<Link to={'/home/drivers'}>
 				<button>Entrar!</button>
 			</Link>
 			<button onClick={toggleTheme}> change color</button>

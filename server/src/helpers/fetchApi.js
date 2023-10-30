@@ -22,7 +22,7 @@ const getDriversApi = async (id, name) => {
 				lastname: data.name.surname,
 				image: data.image.url,
 				description: data.description,
-				nacionality: data.nacionality,
+				nationality: data.nationality,
 				dateOfBirth: data.dob,
 				teams: data.teams?.split(','),
 			};
@@ -38,7 +38,7 @@ const getDriversApi = async (id, name) => {
 				lastname: driver.name.surname,
 				image: driver.image.url,
 				description: driver.description,
-				nacionality: driver.nacionality,
+				nationality: driver.nationality,
 				dateOfBirth: driver.dob,
 				teams: driver.teams?.split(','),
 			};

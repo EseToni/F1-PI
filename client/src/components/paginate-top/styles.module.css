@@ -11,6 +11,7 @@
     border-radius: 0.2vw;
     font-family: 'F1-REGULAR';
     font-size: 0.8vw;
+    height: 4vh;
 }
 
 .button:disabled{

@@ -37,7 +37,7 @@ module.exports = (sequelize) => {
         isUrl : true,
       }
     },
-    nacionality : {
+    nationality : {
       type: DataTypes.STRING,
       allowNull: false,
       validate : {

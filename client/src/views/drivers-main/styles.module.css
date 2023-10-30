@@ -3,9 +3,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    min-height: 5vh;
 }
 
 .mainContainer{
     display: flex;
     flex-direction: column;
+    height: 180.274vh;
 }
