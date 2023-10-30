@@ -1,38 +1,55 @@
-import styles from './styles.module.css'
+import styles from './styles.module.css';
 import { actionCreateDriver } from '../../redux/actions/actionForm';
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import useErrorsForm from '../../hooks/useErrorsForm';
 
 const FormDriver = () => {
-    const dispatch = useDispatch();
-    const createDriver = useSelector((state) => state.formReducer.createDriver);
-
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        dispatch(actionCreateDriver({name : name , value : value}));
-    }
-    const handleOnSubmit = ()=> {
-
-    }
+	const dispatch = useDispatch();
+	const createDriver = useSelector((state) => state.formReducer.createDriver);
+	const errorsForm = useErrorsForm()
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		dispatch(actionCreateDriver({ name: name, value: value }));
+	};
+	const handleOnSubmit = () => {};
+	console.log(errorsForm)
 	return (
-		<form className={styles.form} onSubmit={handleOnSubmit} >
+		<form className={styles.form} onSubmit={handleOnSubmit}>
 			<label htmlFor='name'>Nombre: </label>
-			<input value={createDriver.name} onChange={handleChange} name='name'/>
-            
+			<input value={createDriver.name} onChange={handleChange} name='name' />
+			{errorsForm.name && <span>{errorsForm.name}</span>}
 			<label>Apellido: </label>
-			<input value={createDriver.lastName} onChange={handleChange} name='lastName'/>
+			<input
+				value={createDriver.lastName}
+				onChange={handleChange}
+				name='lastName'
+			/>
 
 			<label>Nacionalidad: </label>
-			<input value={createDriver.nationality} onChange={handleChange} name='nationality'/>
+			<input
+				value={createDriver.nationality}
+				onChange={handleChange}
+				name='nationality'
+			/>
 
 			<label>Fecha de nacimiento: </label>
-			<input value={createDriver.dateOfBirth} name='dateOfBirth' onChange={handleChange}/>
+			<input
+			type='date'
+				value={createDriver.dateOfBirth}
+				name='dateOfBirth'
+				onChange={handleChange}
+			/>
 			<label>Escuderias: </label>
-			<input value={createDriver.teams} name='teams' onChange={handleChange}/>
+			<input value={createDriver.teams} name='teams' onChange={handleChange} />
 			<label>Imagen: </label>
-			<input value={createDriver.image} name='image' onChange={handleChange}/>
+			<input value={createDriver.image} name='image' onChange={handleChange} />
 			<label>Descripcion: </label>
-			<textarea value={createDriver.description} name='description' onChange={handleChange} />
-            <button type='submit'>Crear</button>
+			<textarea
+				value={createDriver.description}
+				name='description'
+				onChange={handleChange}
+			/>
+			<button type='submit'>Crear</button>
 		</form>
 	);
 };

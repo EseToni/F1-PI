@@ -22,6 +22,7 @@ const useFilter = () => {
 	const searchInput = useSelector((state) => state.driverReducer.searchInput);
 	const orderSortActive = useSelector((state) => state.driverReducer.orderSortActive);
 	const teamsFilterActive = useSelector((state) => state.driverReducer.teamsFilterActive);
+	
 	useEffect(() => {
 		const fetchData = async () => {
 			try {

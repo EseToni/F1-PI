@@ -4,3 +4,10 @@ export const actionCreateDriver = (payload) => {
         payload
     }
 }
+
+export const actionErrorsForm = (payload) => {
+    return {
+        type: 'ERRORS_FORM',
+        payload
+    }
+}

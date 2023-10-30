@@ -7,13 +7,15 @@ const initialState = {
         teams: [],
         image: '',
         description: '',
+    },
+    errorsForm : {
+
     }
 }
 
 const reducerForm = (state = initialState, { type, payload }) => {
     switch (type) {
         case 'CREATE_DRIVER':
-            console.log(payload.name)
             return {
                 ...state,
                 createDriver : {
@@ -21,7 +23,11 @@ const reducerForm = (state = initialState, { type, payload }) => {
                     [payload.name] : payload.value
                 }
             }
-    
+        case 'ERRORS_FORM':
+            return {
+                ...state,
+                errorsForm : payload
+            }
         default:
             return state;
     }
