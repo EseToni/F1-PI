@@ -2,10 +2,8 @@
     display: grid;
     align-items: start;
     grid-template-columns: 25% 75%;
-    grid-template-rows: 10% 100%;
-    
+    grid-template-rows: 100%;
 }
-
 .darkBorder{
     border-top: 0.15vw #3232489a solid;
     border-bottom: 0.15vw #3232489a solid;

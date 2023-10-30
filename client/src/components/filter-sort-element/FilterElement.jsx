@@ -1,18 +1,17 @@
 import styles from './styles.module.css';
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionActiveTeams } from '../../redux/actions/actionsFilterSort';
 
-const FilterElement = ({ name, actionAdd, actionRemove }) => {
+const FilterElement = ({ name}) => {
 	const dispatch = useDispatch();
-	const [checked, setChecked] = useState(false);
-	const classChecked = checked ? styles.checked : null;
+	const teamsFilterActive = useSelector(
+		(state) => state.driverReducer.teamsFilterActive
+	);
+	const classChecked = teamsFilterActive[name] ? styles.checked : null;
 	const handleCheck = () => {
-		if (!checked) {
-			dispatch(actionAdd(name));
-		} else {
-			dispatch(actionRemove(name));
-		}
-		setChecked(!checked);
+		dispatch(
+			actionActiveTeams({ name: name, active: !teamsFilterActive[name] })
+		);
 	};
 
 	return (
@@ -26,7 +25,7 @@ const FilterElement = ({ name, actionAdd, actionRemove }) => {
 				id={name}
 				name={name}
 				value={name}
-				checked={checked}
+				checked={teamsFilterActive[name]|| false}
 				onChange={handleCheck}
 			/>
 		</div>

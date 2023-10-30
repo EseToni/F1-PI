@@ -4,6 +4,7 @@ import {
 	sortAgeASC,
 	sortAgeDESC,
 	sortByID,
+	filerByTeam,
 } from '../../helpers/sortersFunc';
 
 const initialState = {
@@ -14,6 +15,10 @@ const initialState = {
 	teamsFilter: [],
 	originFilter: '',
 	sortsFilter: '',
+	teamsFilterActive: {},
+	originFilterActive: {},
+	orderSortActive : {},
+
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -27,12 +32,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
 		case 'REFRESH_DRIVERS':
 			return {
 				...state,
-				drivers: [...state.driversInmutable]
+				drivers: [...state.driversInmutable],
 			};
 		case 'FILTER_BY_NAME':
 			return {
 				...state,
-				drivers: payload
+				drivers: payload,
 			};
 		case 'SEARCH_INPUT':
 			return {
@@ -42,54 +47,22 @@ const rootReducer = (state = initialState, { type, payload }) => {
 		case 'GET_TEAMS':
 			return {
 				...state,
-				teams: payload
-			};
-		case 'ADD_TEAM':
-			return {
-				...state,
-				teamsFilter: [...state.teamsFilter, payload],
-			};
-		case 'REMOVE_TEAM':
-			return {
-				...state,
-				teamsFilter: state.teamsFilter.filter((team) => team !== payload),
+				teams: payload,
 			};
 		case 'FILTER_BY_TEAM':
-			return {
-				...state,
-				drivers: state.drivers.filter((driver) =>
-					state.teamsFilter.every((team) => driver.teams?.includes(team))
-				),
-			};
-		case 'ADD_ORIGIN':
-			return {
-				...state,
-				originFilter: payload,
-			};
-		case 'REMOVE_ORIGIN':
-			return {
-				...state,
-				originFilter: '',
-			};
-		case 'SORTS_ADD':
-			return {
-				...state,
-				sortsFilter: payload,
-			};
-		case 'SORTS_REMOVE':
-			return {
-				...state,
-				sortsFilter: '',
-			};
+				return {
+					...state,
+					drivers: filerByTeam(state.drivers,state.teamsFilterActive),
+				};
 		case 'SORTS_FILTER':
 			var sortedDrivers = [...state.drivers];
-			if (state.sortsFilter === 'AZ') {
+			if (state.orderSortActive['AZ']) {
 				sortedDrivers = sortAZ(state.drivers);
-			} else if (state.sortsFilter === 'ZA') {
+			} else if (state.orderSortActive['ZA']) {
 				sortedDrivers = sortZA(state.drivers);
-			} else if (state.sortsFilter === 'AGE_ASC') {
+			} else if (state.orderSortActive['AGE_ASC']) {
 				sortedDrivers = sortAgeASC(state.drivers);
-			} else if (state.sortsFilter === 'AGE_DESC') {
+			} else if (state.orderSortActive['AGE_DESC']) {
 				sortedDrivers = sortAgeDESC(state.drivers);
 			}
 			return {
@@ -98,15 +71,39 @@ const rootReducer = (state = initialState, { type, payload }) => {
 			};
 		case 'FILTER_BY_ORIGIN':
 			var filterDrivers = [...state.drivers];
-			if (state.originFilter === 'Pilotos originales') {
+			if (state.originFilterActive['Pilotos originales']) {
 				filterDrivers = state.drivers.filter((driver) => !payload(driver.id));
-			} else if (state.originFilter === 'Hechos por fans') {
+			} else if (state.originFilterActive['Hechos por fans']) {
 				filterDrivers = state.drivers.filter((driver) => payload(driver.id));
 			}
 			return {
 				...state,
 				drivers: filterDrivers,
 			};
+		case 'ACTIVE_TEAMS':
+			return {
+				...state,
+				teamsFilterActive: {
+					...state.teamsFilterActive,
+					[payload.name]: payload.active,
+				},
+			};
+		case 'ACTIVE_ORIGIN':
+			return {
+				...state,
+				originFilterActive: {
+					...state.originFilterActive,
+					[payload.name]: payload.active,
+				},
+			}
+		case 'ACTIVE_ORDER_SORT':
+			return {
+				...state,
+				orderSortActive: {
+					...state.orderSortActive,
+					[payload.name]: payload.active,
+				},
+			}
 		default:
 			return state;
 	}

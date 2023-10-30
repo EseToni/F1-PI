@@ -18,11 +18,10 @@ const useFilter = () => {
 	const driversInmutable = useSelector(
 		(state) => state.driverReducer.driversInmutable
 	);
-	const teamsFilter = useSelector((state) => state.driverReducer.teamsFilter);
-	const originFilter = useSelector((state) => state.driverReducer.originFilter);
+	const originFilterActive = useSelector((state) => state.driverReducer.originFilterActive);
 	const searchInput = useSelector((state) => state.driverReducer.searchInput);
-	const sortsFilter = useSelector((state) => state.driverReducer.sortsFilter);
-
+	const orderSortActive = useSelector((state) => state.driverReducer.orderSortActive);
+	const teamsFilterActive = useSelector((state) => state.driverReducer.teamsFilterActive);
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -47,7 +46,7 @@ const useFilter = () => {
 			}
 		};
 		fetchData();
-	}, [dispatch, driversInmutable.length, searchInput,teamsFilter,originFilter,sortsFilter]);
+	}, [dispatch, driversInmutable.length, searchInput,teamsFilterActive,originFilterActive,orderSortActive]);
 
 	return { isLoading };
 };

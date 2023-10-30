@@ -2,12 +2,8 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
 	actionFetchTeams,
-	actionAddTeam,
-	actionRemoveTeam,
-	actionAddOrigin,
-	actionRemoveOrigin,
-	actionSortAdd,
-	actionSortRemove,
+	actionActiveOrigin,
+	actionActiveSort,
 } from '../../redux/actions/actionsFilterSort';
 import { SORT_INPUTS, ORIGIN_INPUTS } from '../../constants/sortInputs';
 import FilterElement from '../filter-sort-element/FilterElement';
@@ -17,6 +13,13 @@ import SortsElements from '../filter-sort-element/SortsElements';
 const Filters = ({ isDarkMode }) => {
 	const dispatch = useDispatch();
 	const teams = useSelector((state) => state.driverReducer.teams);
+	const originFilterActive = useSelector(
+		(state) => state.driverReducer.originFilterActive
+	);
+	const orderSortActive = useSelector(
+		(state) => state.driverReducer.orderSortActive
+	);
+	
 	useEffect(() => {
 		dispatch(actionFetchTeams());
 	}, [dispatch]);
@@ -28,12 +31,7 @@ const Filters = ({ isDarkMode }) => {
 				<summary className={styles.summary}>Escuderias</summary>
 				<div className={styles.inputContainerTeams}>
 					{teams.map((team) => (
-						<FilterElement
-							key={team.id}
-							name={team.name}
-							actionAdd={actionAddTeam}
-							actionRemove={actionRemoveTeam}
-						/>
+						<FilterElement key={team.id} name={team.name} />
 					))}
 				</div>
 			</details>
@@ -41,17 +39,17 @@ const Filters = ({ isDarkMode }) => {
 				<summary className={styles.summary}>Por Origen</summary>
 				<div className={styles.inputContainer}>
 					<SortsElements
-						actionAdd={actionAddOrigin}
-						actionRemove={actionRemoveOrigin}
 						arrayInputs={ORIGIN_INPUTS}
+						state={originFilterActive}
+						actionActive={actionActiveOrigin}
 					/>
 				</div>
 			</details>
 			<h2>Ordenar por: </h2>
 			<SortsElements
-				actionAdd={actionSortAdd}
-				actionRemove={actionSortRemove}
 				arrayInputs={SORT_INPUTS}
+				state={orderSortActive}
+				actionActive={actionActiveSort}
 			/>
 		</aside>
 	);

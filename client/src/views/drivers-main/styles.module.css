@@ -11,3 +11,9 @@
     flex-direction: column;
     height: 180.274vh;
 }
+.containerGrid{
+    display: grid;
+    align-items: start;
+    grid-template-columns: 25% 75%;
+    
+}

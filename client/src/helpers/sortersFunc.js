@@ -63,6 +63,14 @@ export const sortAgeDESC = (array) => {
 };
 
 export const sortByID = (array) => {
-    const sortedDrivers = [...array].sort((a, b) => a.id - b.id);
-    return sortedDrivers;
-  };
+	const sortedDrivers = [...array].sort((a, b) => a.id - b.id);
+	return sortedDrivers;
+};
+
+export const filerByTeam = (arrayDriver, teamsFilter) => {
+	const filteredDrivers = arrayDriver.filter((driver) => {
+		const activeTeams = Object.keys(teamsFilter).filter((team ) => teamsFilter[team]);
+		return activeTeams.every((team) => driver.teams?.includes(team));
+	});
+	return filteredDrivers
+};

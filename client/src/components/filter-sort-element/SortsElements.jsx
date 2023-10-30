@@ -1,28 +1,17 @@
 import styles from './styles.module.css';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-const SortsElements = ({arrayInputs, actionAdd, actionRemove}) => {
+const SortsElements = ({arrayInputs, state,actionActive}) => {
 	const dispatch = useDispatch();
-
-	const initialChekedState = arrayInputs.reduce((acc, input) => { //creo un objeto con los valores de los inputs y los inicializo en false
-		return { ...acc, [input.value]: false };
-	}, {});
-
-	const [checkedName, setCheckedName] = useState(initialChekedState);
 
 	const handleChecked = (event) => {
 		const { checked, value } = event.target;
-		const updatedCheckedName = {}; //creo un objeto vacio para luego actualizarlo con los nuevos valores
-		for (const key in checkedName) {
-			updatedCheckedName[key] = key === value ? checked : false;
+		dispatch(actionActive({name : value, active : checked}));
+		for (const key in state){
+			key === value ? dispatch(actionActive({name : key , active : checked})) : dispatch(actionActive({name : key , active : false}))
 		}
-		setCheckedName(updatedCheckedName);
-		if (checked) {
-			dispatch(actionAdd(value));
-		} else {
-			dispatch(actionRemove());
-		}
+
 	};
+	
 	return (
 		<div className={styles.containerSorts}>
 			{arrayInputs.map((input, index) => (
@@ -34,7 +23,7 @@ const SortsElements = ({arrayInputs, actionAdd, actionRemove}) => {
 						id={input.name}
 						name={input.name}
 						value={input.value}
-						checked={checkedName[input.value]}
+						checked={state[input.value] || false}
 						onChange={handleChecked}
 					/>
 					<label className={styles.label} htmlFor={input.name} key={input.key2}>
