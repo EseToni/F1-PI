@@ -8,7 +8,6 @@
 .containerMain{
     display: flex;
     flex-direction: column;
-    height: 180.274vh;
 }
 .containerArticle{
     display: flex;
@@ -33,20 +32,22 @@
     border-radius: 0.5vw;
 }
 .name {
-    font-family: 'F1-REGULAR';
     font-size: 7vh ;
     margin: 0vw ;
     padding: 0vw ;
 }
+.footer h3{
+    font-size: 2vh;
+}
 .button{
-    margin: 0vw 1vw;
-    padding: 0.5vw;
+    margin-left: 3vw;
+    padding: 0.7vw 1.2vw;
     border: none;
     cursor: pointer;
     border-radius: 0.2vw;
     font-family: 'F1-REGULAR';
-    font-size: 0.8vw;
-    height: 4vh;
+    font-size: 1vw;
+    justify-content: center;
 }
 
 .button:disabled{

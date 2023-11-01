@@ -11,6 +11,7 @@ import {
 	actionFilterByOrigin,
 } from '../redux/actions/actionsFilterSort';
 import { actionIndexPage } from '../redux/actions/actionsPages';
+import { isActive } from '../helpers/isFilterActive';
 
 const useFilter = () => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -18,11 +19,17 @@ const useFilter = () => {
 	const driversInmutable = useSelector(
 		(state) => state.driverReducer.driversInmutable
 	);
-	const originFilterActive = useSelector((state) => state.driverReducer.originFilterActive);
+	const originFilterActive = useSelector(
+		(state) => state.driverReducer.originFilterActive
+	);
 	const searchInput = useSelector((state) => state.driverReducer.searchInput);
-	const orderSortActive = useSelector((state) => state.driverReducer.orderSortActive);
-	const teamsFilterActive = useSelector((state) => state.driverReducer.teamsFilterActive);
-	
+	const orderSortActive = useSelector(
+		(state) => state.driverReducer.orderSortActive
+	);
+	const teamsFilterActive = useSelector(
+		(state) => state.driverReducer.teamsFilterActive
+	);
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -32,22 +39,37 @@ const useFilter = () => {
 				}
 				if (searchInput) {
 					await dispatch(actionFetchSearchDrivers(searchInput)); //me aseguro de que la accion se ejecute antes de continuar
+					dispatch(actionIndexPage());
 				} else {
 					await dispatch(actionRefreshDrivers());
 				}
-				dispatch(actionFilterByTeam());
-				dispatch(actionFilterByOrigin());
-				dispatch(actionSort());
-                dispatch(actionIndexPage());
+				if(isActive(teamsFilterActive)){
+					dispatch(actionFilterByTeam());
+					dispatch(actionIndexPage());
+				}
+				if (isActive(originFilterActive)) {
+					dispatch(actionFilterByOrigin());
+					dispatch(actionIndexPage());
+				}
+				if(isActive(orderSortActive)){
+					dispatch(actionSort());
+				}
 				setTimeout(() => {
 					setIsLoading(false);
 				}, 1000);
 			} catch (error) {
-                setIsLoading(false);
+				setIsLoading(false);
 			}
 		};
 		fetchData();
-	}, [dispatch, driversInmutable.length, searchInput,teamsFilterActive,originFilterActive,orderSortActive]);
+	}, [
+		dispatch,
+		driversInmutable.length,
+		searchInput,
+		teamsFilterActive,
+		originFilterActive,
+		orderSortActive,
+	]);
 
 	return { isLoading };
 };

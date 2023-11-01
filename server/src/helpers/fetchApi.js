@@ -19,7 +19,7 @@ const getDriversApi = async (id, name) => {
 			return {
 				id: data.id,
 				name: data.name.forename,
-				lastname: data.name.surname,
+				lastName: data.name.surname,
 				image: data.image.url,
 				description: data.description,
 				nationality: data.nationality,
@@ -35,7 +35,7 @@ const getDriversApi = async (id, name) => {
 			return {
 				id: driver.id,
 				name: driver.name.forename,
-				lastname: driver.name.surname,
+				lastName: driver.name.surname,
 				image: driver.image.url,
 				description: driver.description,
 				nationality: driver.nationality,

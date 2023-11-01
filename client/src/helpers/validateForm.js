@@ -1,10 +1,12 @@
-function isURLValid(url) {
+export function isURLValid(url) {
 	// Expresión regular para validar una URL
 	const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
 
 	return regex.test(url);
 }
-
+export const isError = (errors) => {
+	return Object.values(errors).some((error) => error !== '');
+}
 export const validateForm = ({
 	name,
 	lastName,
@@ -41,7 +43,6 @@ export const validateForm = ({
 		errors.dateOfBirth = 'La fecha de nacimiento debe ser una fecha';
 	} else {
 		const year = date.getFullYear();
-        console.log(year)
 		if (year < 1920 || year > 2013 ) {
 			errors.dateOfBirth =
 				'La fecha de nacimiento debe estar entre 1920 y 2013';
@@ -49,11 +50,14 @@ export const validateForm = ({
 			errors.dateOfBirth = '';
 		}
 	}
-	if (teams.length < 1) {
+	if (teams.length < 1 || teams[0] === '') {
 		errors.teams = 'Debe tener minimo una escuderia';
 	} else if (teams.length > 10) {
 		errors.teams = 'No puede tener mas de 10 escuderias';
-	} else {
+	} else if (teams.some((team) => team.length < 3 || team.length > 20)) {
+		errors.teams = 'Las escuderias deben tener entre 3 y 20 caracteres';
+	}
+	else {
 		errors.teams = '';
 	}
 	if (!isURLValid(image)) {
@@ -63,10 +67,10 @@ export const validateForm = ({
 	}
 	if (!description) {
 		errors.description = 'La descripción es necesaria';
-	} else if (description.length < 10 || description.length > 500) {
-		errors.description = 'La descripción debe tener entre 10 y 500 caracteres';
+	} else if (description.length < 20 || description.length > 500) {
+		errors.description = 'La descripción debe tener entre 20 y 500 caracteres';
 	} else {
-		errors.dateOfBirth = '';
+		errors.description = '';
 	}
 	return errors;
 };

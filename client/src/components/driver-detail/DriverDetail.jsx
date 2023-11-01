@@ -3,14 +3,23 @@ import styles from './styles.module.css';
 import useGetDriver from '../../hooks/useGetDriver';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../theme/ThemeProvider';
+import PaginateButtons from './PaginateButtons';
 const DriverDetail = () => {
 	let { driverId } = useParams();
 	const { isDarkMode } = useTheme();
-	const { name, lastname, image, description, dateOfBirth, teams , nationality} =
-		useGetDriver({ driverId });
+	const {
+		name,
+		lastName,
+		image,
+		description,
+		dateOfBirth,
+		teams,
+		nationality,
+	} = useGetDriver({ driverId });
 	const teamsArray = teams ? teams : ['Ninguna'];
 	const biografy = description ? description : 'No hay biografía disponible';
 	const radiantClass = isDarkMode ? styles.darkGradient : styles.normalGradient;
+
 	return (
 		<div className={`${styles.containerMain} `}>
 			<div className={styles.containerNav}>
@@ -18,10 +27,7 @@ const DriverDetail = () => {
 					<button className={styles.button}>Home</button>
 				</Link>
 				<h1> DETALLES DEL PILOTO</h1>
-				<div>
-					<button className={styles.button}>{`<< anterior`}</button>
-					<button className={styles.button}>{`siguiente >>`}</button>
-				</div>
+				<PaginateButtons id={driverId} />
 			</div>
 			<article className={`${styles.containerArticle} ${radiantClass}`}>
 				<figure>
@@ -29,27 +35,27 @@ const DriverDetail = () => {
 				</figure>
 				<header className={styles.header}>
 					<h1 className={styles.name}>
-						{name} <span style={{ color: '#dc0000' }}>{lastname}</span>
+						{name} <span style={{ color: '#dc0000' }}>{lastName}</span>
 					</h1>
 					<h2>
-						Fecha de nacimiento:{''}
+						Fecha de nacimiento :{''}
 						<span style={{ color: '#dc0000', marginLeft: '1vh' }}>
 							{dateOfBirth}
 						</span>
 					</h2>
 					<h2>
-						Nacionalidad:{''}
+						Nacionalidad :{''}
 						<span style={{ color: '#dc0000', marginLeft: '1vh' }}>
 							{nationality}
 						</span>
 					</h2>
 					<h2>
-						<span style={{ marginRight: '1vh' }}>Escuderias:</span>
+						Escuderias : {''}
 						{teamsArray.map((team, index) => (
 							<span
 								key={index++}
 								style={{
-									color: index % 2 === 0 ? '' : 'red',
+									color: index % 2 !== 0 ? '' : 'red',
 									marginRight: '0.3vh',
 								}}
 								className={styles.teamName}

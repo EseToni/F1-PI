@@ -4,7 +4,7 @@ import Home from './views/home/Home';
 import { ThemeProvider } from './theme/ThemeProvider';
 import DriverDetail from './components/driver-detail/DriverDetail';
 import DriversMain from './views/drivers-main/DriversMain';
-import CreateDriver from './components/create-driver/CreateDriver';
+import CreateDriver from './views/create-driver/CreateDriver';
 import './App.css';
 
 function App() {

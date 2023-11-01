@@ -1,13 +1,14 @@
 import styles from './styles.module.css';
 import { useNavigate } from 'react-router-dom';
-const DriverCard = ({ name, lastname, image, teams, id, isDarkMode }) => {
+import { isURLValid } from '../../helpers/validateForm';
+const DriverCard = ({ name, lastName, image, teams, id, isDarkMode, canNavigate }) => {
 	const navigate = useNavigate();
 	const backgroundClass = isDarkMode ? 'dark-bg-dark-gray' : 'normal-bg-gray';
 	const backGroundRadient = isDarkMode? styles.darkGradient : styles.normalGradient;
 
 	const teamsArray = teams ? teams : ['Ninguna'];
 	const onClickNavigate = () => {
-		navigate(`/home/driver/${id}`);
+		if(!canNavigate) navigate(`/home/driver/${id}`);
 	};
 	return (
 		<article
@@ -16,10 +17,10 @@ const DriverCard = ({ name, lastname, image, teams, id, isDarkMode }) => {
 		>
 			<header className={styles.headerOverlay}>
 				<figure className={styles.figure}>
-					<img src={image} alt='Driver' className={styles.img} />
+					{isURLValid(image) ? <img src={image} alt='Driver' className={styles.img} /> : <div className={`${styles.img} ${styles.imgNoLoad}`}></div>}
 				</figure>
 				<h1 className={styles.name}>
-					{name} {lastname}
+					{name} {lastName}
 				</h1>
 			</header>
 			<footer className={styles.footer}>

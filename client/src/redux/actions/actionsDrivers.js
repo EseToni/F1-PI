@@ -30,3 +30,16 @@ export const actionRefreshDrivers = () => {
 		type: 'REFRESH_DRIVERS'
 	}
 }
+
+export const actionNextDriverDetail = (id) => {
+	return {
+		type: 'NEXT_DRIVER_DETAIL',
+		payload: id
+	}
+}
+export const actionPrevDriverDetail = (id) => {
+	return {
+		type: 'PREV_DRIVER_DETAIL',
+		payload: id
+	}
+}

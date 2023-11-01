@@ -11,7 +11,7 @@
     src: url('./fonts/Formula1-Wide.otf')format('opentype');
 }
 body{
-    margin: 2vw;
+    margin: 1vw ;
     padding: 1vw;
 }
 h1{
@@ -31,6 +31,12 @@ summary{
     font-family: 'F1-REGULAR';
 }
 label{
+    font-family: 'F1-BOLD';
+}
+input {
+    font-family: 'F1-REGULAR';
+}
+textarea{
     font-family: 'F1-REGULAR';
 }
 .customLink{

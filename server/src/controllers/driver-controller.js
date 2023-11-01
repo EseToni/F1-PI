@@ -23,7 +23,7 @@ class DriverController {
 
 			return drivers;
 		} catch (error) {
-			return { error: error.message };
+			throw Error(error.message);
 		}
 	}
 
@@ -45,7 +45,7 @@ class DriverController {
 			}
 			return { error: 'No se encontró el conductor' };
 		} catch (error) {
-			return { error: error.message };
+			throw Error(error.message);
 		}
 	}
 
@@ -76,14 +76,14 @@ class DriverController {
 
 			return drivers.slice(0, 15);
 		} catch (error) {
-			return { error: error.message };
+			throw Error(error.message);
 		}
 	}
 
 	static async postDrivers(driver) {
 		try {
 			const teams = await Promise.all(
-				driver.team.map(async (team) => {
+				driver.teams.map(async (team) => {
 					const [newTeam] = await Team.findOrCreate({ where: { name: team } }); //Buscamos o creamos el equipo, y utilizamos los corchetes para
 					return newTeam; //coger el primer valor que devuelve findOrCreate [team, boolean]
 				})
@@ -98,7 +98,7 @@ class DriverController {
 
 			return newDriver;
 		} catch (error) {
-			return { error: error.message };
+			throw Error(error.message);
 		}
 	}
 }

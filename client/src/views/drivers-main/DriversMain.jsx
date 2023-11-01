@@ -2,6 +2,7 @@ import styles from './styles.module.css';
 import MapDrivers from '../../components/MapDrivers/MapDrivers';
 import PaginateTop from '../../components/paginate-top/PaginateTop';
 import FilterSortMain from '../filter-sort-main/FilterSortMain';
+import FiltersTags from '../../components/filters-tags/FiltersTags';
 
 const DriversMain = () => {
 	return (
@@ -12,9 +13,7 @@ const DriversMain = () => {
 					<h1>Drivers</h1>
 					<PaginateTop />
 				</div>
-				<div>
-					<button>age x</button>
-				</div>
+				<FiltersTags />
 				<MapDrivers />
 			</div>
 		</div>

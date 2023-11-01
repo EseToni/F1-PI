@@ -14,9 +14,21 @@ module.exports = (sequelize) => {
       allowNull: false,
       validate: {
         len : [3, 20],
+        isUniqueNameAndLastName(value) {
+          return sequelize.models.Driver.findOne({
+            where: {
+              name: value,
+              lastName: this.getDataValue('lastName'),
+            },
+          }).then((driver) => {
+            if (driver) {
+              throw new Error('Ya existe un conductor con el mismo nombre y apellido');
+            }
+          });
       }
     },
-    lastname: {
+  },
+    lastName: {
       type: DataTypes.STRING,
       allowNull:false,
       validate : {
@@ -45,7 +57,7 @@ module.exports = (sequelize) => {
       }
     },
     dateOfBirth : {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
       validate : {
         isDate : true,

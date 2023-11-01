@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
 	actionFetchTeams,
@@ -9,6 +9,10 @@ import { SORT_INPUTS, ORIGIN_INPUTS } from '../../constants/sortInputs';
 import FilterElement from '../filter-sort-element/FilterElement';
 import styles from './styles.module.css';
 import SortsElements from '../filter-sort-element/SortsElements';
+import {
+	actionTeamsDetails,
+	actionOriginDetails,
+} from '../../redux/slices/sliceFilter';
 
 const Filters = ({ isDarkMode }) => {
 	const dispatch = useDispatch();
@@ -19,24 +23,48 @@ const Filters = ({ isDarkMode }) => {
 	const orderSortActive = useSelector(
 		(state) => state.driverReducer.orderSortActive
 	);
-	
+	const teamsDetails = useSelector(
+		(state) => state.detailsReducer.teamsDetails
+	);
+	const originDetails = useSelector(
+		(state) => state.detailsReducer.originDetails
+	);
+	const [openDetailsTeams, setOpenDetailsTeams] = useState(teamsDetails);
+	const [openDetailsOrigin, setOpenDetailsOrigin] = useState(originDetails);
+
 	useEffect(() => {
 		dispatch(actionFetchTeams());
 	}, [dispatch]);
+	useEffect(() => {
+		setOpenDetailsTeams(teamsDetails);
+	}, [teamsDetails]);
+	useEffect(() => {
+		setOpenDetailsOrigin(originDetails);
+	}, [originDetails]);
 
+	const handleClickTeams = () => {
+		dispatch(actionTeamsDetails(!openDetailsTeams));
+	};
+	const handleClickOrigin = () => {
+		dispatch(actionOriginDetails(!openDetailsOrigin));
+	};
 	return (
 		<aside>
 			<h2>Filtrar por: </h2>
-			<details>
-				<summary className={styles.summary}>Escuderias</summary>
+			<details open={openDetailsTeams}>
+				<summary className={styles.summary} onClick={handleClickTeams}>
+					Escuderias
+				</summary>
 				<div className={styles.inputContainerTeams}>
 					{teams.map((team) => (
 						<FilterElement key={team.id} name={team.name} />
 					))}
 				</div>
 			</details>
-			<details>
-				<summary className={styles.summary}>Por Origen</summary>
+			<details open={openDetailsOrigin}>
+				<summary className={styles.summary} onClick={handleClickOrigin}>
+					Por Origen
+				</summary>
 				<div className={styles.inputContainer}>
 					<SortsElements
 						arrayInputs={ORIGIN_INPUTS}

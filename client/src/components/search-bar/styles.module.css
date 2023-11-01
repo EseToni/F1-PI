@@ -8,8 +8,11 @@
     outline: none;
     border: none;
     border-radius: 0.5vw;
+    font-size: 1vw;
 }
-
+.input:focus{
+    box-shadow: 0 0 0.5vw 0.1vw #0000004e;
+}
 .label{
     display: flex;
     flex-direction: row;

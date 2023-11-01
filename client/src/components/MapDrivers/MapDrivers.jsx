@@ -33,7 +33,7 @@ const MapDrivers = () => {
 				key={driver.id}
 				id={driver.id}
 				name={driver.name}
-				lastname={driver.lastname}
+				lastName={driver.lastName}
 				image={driver.image}
 				teams={driver.teams}
 				isDarkMode={isDarkMode}

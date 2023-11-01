@@ -4,14 +4,24 @@
     align-self: center;
     align-items: center;
     height: 100%;
-    justify-content: center;
+    justify-content: space-evenly;
 }
-
-.h3Driver{
-    border: 0.2vw black solid;
+.container h1{
+    font-size: 2.2vw;
+    padding: 1vw 2vw;
     border-radius: 0.5vw;
+    cursor: pointer;
 }
-
+.container h1:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 0.9vw 0.1vw #0c001b4e;
+}
+.darkBg{
+    background: linear-gradient(120deg, #1e1e2d 0%, rgba(43, 43, 61, 0.866) 90%);
+}
+.normalBg{
+	background: linear-gradient(120deg, #f6f6f6 0%, rgba(203, 203, 203, 0.253) 80%);
+}
 .darkBorder{
     border-top: 0.15vw #3232489a solid;
     border-bottom: 0.15vw #3232489a solid;
