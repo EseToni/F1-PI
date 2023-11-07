@@ -30,3 +30,23 @@
     border-top: 0.15vw #c7c7c7a7 solid;
     border-bottom: 0.15vw #c7c7c7a7 solid;
 }
+.button{
+    cursor: pointer;
+    border:none;
+    font-family: 'F1-REGULAR';
+    font-size: 2vw;
+    border-radius: 0.5vw;
+    padding: 0.5vw 1.2vw;
+}
+.button:hover:disabled{
+    transform: scale(1.0);
+    box-shadow: none;
+}
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0vw 0vw 0.4vw 0.1vw rgba(87, 87, 87, 0.552);
+}
+
+.button:disabled{
+    cursor: context-menu;
+}

@@ -5,7 +5,6 @@ import {
 	sortAgeDESC,
 	filerByTeam,
 } from '../../helpers/sortersFunc';
-import { idDriverNextDetail, idDriverPrevDetail } from '../../helpers/paginateDetails';
 const initialState = {
 	driversInmutable: [],
 	drivers: [],
@@ -17,8 +16,7 @@ const initialState = {
 	teamsFilterActive: {},
 	originFilterActive: {},
 	orderSortActive : {},
-	idDriverNextDetail: 1,
-	idDriverPrevDetail: 1,
+	alert: true,
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -104,17 +102,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
 					[payload.name]: payload.active,
 				},
 			}
-		case 'NEXT_DRIVER_DETAIL': 
-			return {
+		case 'ALERT_OFF':
+			return{
 				...state,
-				idDriverNextDetail: idDriverNextDetail(payload, state.drivers),
+				alert : false
 			}
-		case 'PREV_DRIVER_DETAIL': 
-			return {
-				...state,
-				idDriverPrevDetail: idDriverPrevDetail(payload, state.drivers),
-			}
-
 		default:
 			return state;
 	}

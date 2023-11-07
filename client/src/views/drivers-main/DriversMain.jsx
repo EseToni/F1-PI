@@ -10,7 +10,7 @@ const DriversMain = () => {
 			<FilterSortMain />
 			<div className={styles.mainContainer}>
 				<div className={styles.container}>
-					<h1>Drivers</h1>
+					<h1>Pilotos</h1>
 					<PaginateTop />
 				</div>
 				<FiltersTags />

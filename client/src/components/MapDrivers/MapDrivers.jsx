@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import styles from './styles.module.css';
 import usePagination from '../../hooks/usePagination';
 import { useTheme } from '../../theme/ThemeProvider';
-import PaginateButtom from '../paginate-buttom/PaginateButtom';
+import PaginateBottom from '../paginate-bottom/PaginateBottom';
 import useFilter from '../../hooks/useFilter';
 import SkeletonCard from '../skeleton-card/SkeletonCard';
 import { SKELETON_CARDS } from '../../constants/skeletonCards';
@@ -54,7 +54,7 @@ const MapDrivers = () => {
 			) : (
 				<div className={`${styles.containerGrid}`}>
 					{memoizedDriverCards}
-					<PaginateButtom />
+					<PaginateBottom isDarkMode={isDarkMode}/>
 				</div>
 			)}
 		</>

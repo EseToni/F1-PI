@@ -45,7 +45,7 @@ const getDriversApi = async (id, name) => {
 		});
 		if (name) {
 			drivers = drivers.filter((driver) => {
-				return driver.name.toLowerCase().includes(name.toLowerCase());
+				return driver.name.toLowerCase().startsWith(name.toLowerCase());
 			});
 		}
 		return drivers;

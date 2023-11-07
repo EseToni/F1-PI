@@ -4,6 +4,7 @@
 	transition: all 0.5s ease-in-out;
 	background-color: #f6f6f6;
 }
+
 .normal-bg-white h1{
 	transition: all 0.5s ease-in-out;
 	color: #14141e;
@@ -27,12 +28,12 @@
 .normal-bg-white button {
 	transition: all 0.5s ease-in-out;
 	color: #1e1e2d;
-	background-color: #c7c7c7a7;
+	background-color: #c7c7c7;
 }
 .normal-bg-white button:disabled {
 	transition: all 0.5s ease-in-out;
 	color: #1e1e2d71;
-	background-color: #c7c7c751;
+	background-color: #c7c7c7;
 }
 .normal-bg-white summary{
 	transition: all 0.5s ease-in-out;
@@ -76,12 +77,12 @@
 .dark-bg-night-blue button {
 	transition: all 0.5s ease-in-out;
 	color: #f6f6f6;
-	background-color: #3232489a;
+	background-color: #323248;
 }
 .dark-bg-night-blue button:disabled {
 	transition: all 0.5s ease-in-out;
 	color: #f6f6f688;
-	background-color: #32324855;
+	background-color: #323248ae;
 }
 .dark-bg-night-blue summary {
 	transition: all 0.5s ease-in-out;

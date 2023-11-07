@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1 /4;
+    align-self: baseline;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    z-index: 100;
+    padding-bottom: 0.5vw;
+}
+.containerChild{
+    display: flex;
+    flex-direction: row;
+    padding: 0.8vw 1vw;
+    border-radius: 0.5vw;
+    transition: all 0.5s ease;
+}
+.containerChild:hover{
+    transform: scale(1.1)
+}
+.normal{
+    background-color: rgba(0, 0, 0, 0.29);
+}
+.dark{
+    background-color: #41415877;
+}
+.normal:hover{
+    background-color: rgba(0, 0, 0, 0.684);
+}
+.dark:hover {
+    background-color: #414158d6;
+}
+.pageItem {
+    transition: all 0.3s ease-in-out;
+    margin: 0vw;
+}
+.pageLink{
+    transition: all 0.3s ease-in-out;
+    margin: 0vw 0.5vw;
+    font-size: 1.5vw;
+    font-family: 'F1-REGULAR';
+    border: none;
+    padding: 0.4vw 0.8vw;
+    border-radius: 0.4vw;
+    cursor: pointer;
+}
+.pageLink:hover{
+    transform: scale(1.1);
+}
+.pageLink:disabled{
+    box-shadow: 0vw 0vw 0.5vw 0.2vw rgba(54, 54, 54, 0.62);
+}
+.pageLink:disabled:hover{
+    transform: none;
+}
+.active{
+    transition: all 0.3s ease-in-out;
+    scale: 1.25;
+}
+
+.linkActive{
+    cursor: auto;
+}

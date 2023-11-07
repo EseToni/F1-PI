@@ -9,16 +9,16 @@ export const displayPages = (
 ) => {
 	if (totalPages <= totalDisplayPages) {
 		return range(1, totalPages);
-	} else if (currentPage <= middlePage) {
-		return [...range(1, totalDisplayPages), '...', totalPages];
+	} else if (currentPage <= middlePage + 1) {
+		return [...range(1, totalDisplayPages), {right:'...'}, totalPages];
 	} else if (currentPage >= totalPages - middlePage) {
-		return [1, '...', ...range(totalPages - totalDisplayPages + 2, totalPages)];
+		return [1, {left:'...'}, ...range(totalPages - totalDisplayPages + 1, totalPages)];
 	} else {
 		return [
 			1,
-			'...',
-			...range(currentPage - middlePage + 1 , currentPage + middlePage),
-			'...',
+			{left:'...'},
+			...range(currentPage - middlePage + 0 , currentPage + middlePage),
+			{right:'...'},
 			totalPages,
 		];
 	}

@@ -1,24 +1,31 @@
 import styles from './styles.module.css';
-import { CiSearch } from 'react-icons/ci';
 import { useDispatch } from 'react-redux';
 import { actionSearchInput } from '../../redux/actions/actionsDrivers';
-const SearchBar = () => {
+import searchNormal from '../../assets/icons/BiSearchDark.svg';
+import searchDark from '../../assets/icons/BiSearchNormal.svg';
+
+const SearchBar = ({ isDarkMode }) => {
 	const dispatch = useDispatch();
 
 	const handleSearch = (e) => {
 		dispatch(actionSearchInput(e.target.value));
 	};
+	
 	return (
-		<>
+		<div className={styles.container}>
 			<label className={styles.label}>
-				<CiSearch className={styles.icon} />
+				{isDarkMode ? (
+					<img src={searchDark} alt='search' className={styles.icon} />
+				) : (
+					<img src={searchNormal} alt='search' className={styles.icon} />
+				)}
 				<input
 					className={styles.input}
 					placeholder='Busca entre mas de 500 pilotos...'
 					onChange={handleSearch}
 				/>
 			</label>
-		</>
+		</div>
 	);
 };
 

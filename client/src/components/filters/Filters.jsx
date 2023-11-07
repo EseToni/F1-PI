@@ -49,7 +49,7 @@ const Filters = ({ isDarkMode }) => {
 		dispatch(actionOriginDetails(!openDetailsOrigin));
 	};
 	return (
-		<aside>
+		<aside className={styles.aside}>
 			<h2>Filtrar por: </h2>
 			<details open={openDetailsTeams}>
 				<summary className={styles.summary} onClick={handleClickTeams}>

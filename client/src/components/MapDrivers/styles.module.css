@@ -3,7 +3,7 @@
     align-items: center;
     grid-template-columns: 1fr 1fr 1fr ;
     grid-template-rows: repeat(3, 1fr) auto;
-    gap: 1.5vw;
+    gap: 1.5vw 4vw;
     justify-content: center;
     align-self: center;
 }

@@ -51,7 +51,7 @@ export const validateForm = ({
 		}
 	}
 	if (teams.length < 1 || teams[0] === '') {
-		errors.teams = 'Debe tener minimo una escuderia';
+		errors.teams = 'Separa los equipos por comas';
 	} else if (teams.length > 10) {
 		errors.teams = 'No puede tener mas de 10 escuderias';
 	} else if (teams.some((team) => team.length < 3 || team.length > 20)) {

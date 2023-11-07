@@ -144,3 +144,7 @@
 .containerButton button:disabled{
 	cursor: not-allowed;
 }
+.containerButton button:hover:disabled {
+	transform: scale(1.0);
+	box-shadow: none;
+}

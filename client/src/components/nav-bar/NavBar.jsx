@@ -3,19 +3,21 @@ import SearchBar from '../search-bar/SearchBar';
 import { Link } from 'react-router-dom';
 import ToggleDarkMode from '../toggle-dark-mode/toggleDarkMode';
 import { useTheme } from '../../theme/ThemeProvider';
-
+import { useLocation } from 'react-router-dom';
 const NavBar = () => {
 	const { isDarkMode, toggleTheme } = useTheme();
+	const location = useLocation();
 	const borderClass = isDarkMode ? styles.darkBorder : styles.normalBorder;
-	const bgClass = isDarkMode ? styles.darkBg : styles.normalBg;
+	const isInCreate = location.pathname === '/home/create-driver'
+
 
 	return (
 		<nav className={`${styles.container} ${borderClass}`}>
-			<SearchBar />
+			<SearchBar  isDarkMode={isDarkMode}/>
 			<Link className='customLink' to='/home/create-driver'>
-				<h1 className={` ${bgClass}`}>
+				<button className={styles.button} disabled={isInCreate}>
 					CREAR TU PILOTO
-				</h1>
+				</button>
 			</Link>
 			<ToggleDarkMode isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 		</nav>

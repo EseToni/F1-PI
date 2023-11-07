@@ -1,47 +1,55 @@
 @font-face {
-    font-family: 'F1-BOLD';
-    src: url('./fonts/Formula1-Bold.otf')format('opentype');
+	font-family: 'F1-BOLD';
+	src: url('./fonts/Formula1-Bold.otf') format('opentype');
 }
 @font-face {
-    font-family: 'F1-REGULAR';
-    src: url('./fonts/Formula1-Regular.otf')format('opentype');
+	font-family: 'F1-REGULAR';
+	src: url('./fonts/Formula1-Regular.otf') format('opentype');
 }
 @font-face {
-    font-family: 'F1-WIDE';
-    src: url('./fonts/Formula1-Wide.otf')format('opentype');
+	font-family: 'F1-WIDE';
+	src: url('./fonts/Formula1-Wide.otf') format('opentype');
 }
-body{
-    margin: 1vw ;
-    padding: 1vw;
+body {
+	margin: 0vw;
 }
-h1{
-    font-family: 'F1-REGULAR';
-    font-size: 2vw;
+body::-webkit-scrollbar {
+	background-color: #3232489a;
+    width: 0.5vw;
 }
-h2{
-    font-family: 'F1-REGULAR';
+body::-webkit-scrollbar-thumb {
+	background-color: #000000c2;
+    border-radius: 1vw;
 }
-h3{
-    font-family: 'F1-REGULAR';
+
+h1 {
+	font-family: 'F1-REGULAR';
+	font-size: 2vw;
+}
+h2 {
+	font-family: 'F1-REGULAR';
+}
+h3 {
+	font-family: 'F1-REGULAR';
 }
 span {
-    font-family: 'F1-REGULAR';
+	font-family: 'F1-REGULAR';
 }
-summary{
-    font-family: 'F1-REGULAR';
+summary {
+	font-family: 'F1-REGULAR';
 }
-label{
-    font-family: 'F1-BOLD';
+label {
+	font-family: 'F1-BOLD';
 }
 input {
-    font-family: 'F1-REGULAR';
+	font-family: 'F1-REGULAR';
 }
-textarea{
-    font-family: 'F1-REGULAR';
+textarea {
+	font-family: 'F1-REGULAR';
 }
-.customLink{
-    text-decoration: none;
-    color: inherit;
+.customLink {
+	text-decoration: none;
+	color: inherit;
 }
 /* Modo Normal:
 

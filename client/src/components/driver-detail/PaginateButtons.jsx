@@ -1,36 +1,31 @@
-import {
-	actionNextDriverDetail,
-	actionPrevDriverDetail,
-} from '../../redux/actions/actionsDrivers';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useEffect, useState} from 'react';
+import {  useSelector } from 'react-redux';
 import styles from './styles.module.css';
 import { Link } from 'react-router-dom';
+import { idDriverNextDetail , idDriverPrevDetail } from '../../helpers/paginateDetails';
 
 const PaginateButtons = ({ id }) => {
-
-	const dispatch = useDispatch();
-	const idDriverNextDetail = useSelector(
-		(state) => state.driverReducer.idDriverNextDetail
-	);
-	const idDriverPrevDetail = useSelector(
-		(state) => state.driverReducer.idDriverPrevDetail
+	const [prevId, setPrevId] = useState(0);
+	const [nextId, setNextId] = useState(0);
+	const drivers = useSelector(
+		(state) => state.driverReducer.drivers
 	);
 
 	useEffect(() => {
         if (id !== undefined) {
-            dispatch(actionNextDriverDetail(id))
-            dispatch(actionPrevDriverDetail(id));
+			setNextId(idDriverNextDetail(id,drivers))
+			setPrevId(idDriverPrevDetail(id,drivers))
         }
-	}, [id, dispatch]);
+	}, [id,drivers]);
 
 	return (
 		<div>
-			<Link to={`/home/driver/${idDriverPrevDetail}`}>
-				<button className={styles.button} disabled={idDriverPrevDetail == 0 }>{`<< anterior`}</button>
+			<Link to={`/home/driver/${prevId}`}>
+				<button className={styles.button} disabled={prevId == 0 }>{`<< anterior`}</button>
 			</Link>
-			<Link to={`/home/driver/${idDriverNextDetail}`}>
-				<button className={styles.button} disabled={idDriverNextDetail == true}>{`siguiente >>`}</button>
+			<Link to={`/home/driver/${nextId}`}>
+				<button className={styles.button} disabled={nextId == true}>{`siguiente >>`}</button>
 			</Link>
 		</div>
 	);

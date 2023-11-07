@@ -1,5 +1,16 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 3.3vw;
+    background-color: rgba(203, 203, 203, 0.253);
+    border-radius: 0.5vw;
+    width: 24vw;
+}
+
 .icon{
-    width: 2vw;
+    width: 3.5vw;
     height: 2vw;
 }
 .input {
@@ -8,6 +19,8 @@
     outline: none;
     border: none;
     border-radius: 0.5vw;
+    border-top-left-radius: 0vw;
+    border-bottom-left-radius: 0vw;
     font-size: 1vw;
 }
 .input:focus{
