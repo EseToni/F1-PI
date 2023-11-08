@@ -1,34 +1,57 @@
 const { conn } = require('../db.js');
-const { Driver } = require('../db.js');
+const { Team, Driver } = require('../db.js');
 
 describe('Driver model', () => {
 	beforeAll(async () => {
 		await conn.sync({ force: true });
 	});
-
-	describe('isUniqueNameAndLastName', () => {
-		it('should throw an error if a driver with the same name and last name already exists', async () => {
-			const driver = await Driver.create({
-				name: 'Fernando',
-				lastName: 'Alonso',
-				dateOfBirth: '1985-01-07',
-				image: 'https://example.com/lewis-hamilton.jpg',
-				description: 'A very fast driver the number one driver juajaji',
-				teams: ['Renault'],
-				nationality: 'spanish',
-			});
-			expect(driver).toThrow(
-				'Ya existe un conductor con el mismo nombre y apellido'
-			);
-		});
-
-		xit('should not throw an error if no driver with the same name and last name exists', async () => {
+	const driverObject = {
+		name: 'Antonio',
+		lastName: 'Perez',
+		description: 'Best pilot ever desgined to win the formula one',
+		nationality: 'Mexican',
+		dateOfBirth: '1990-01-26',
+		image:
+			'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Drivers/2018/lewis-hamilton.png.transform/2col/image.png',
+	};
+	it('should create a new driver', async () => {
+		const driver = await Driver.create(driverObject);
+		expect(driver.id).toBeDefined();
+		expect(driver.name).toBe('Antonio');
+		expect(driver.lastName).toBe('Perez');
+		expect(driver.description).toBe(
+			'Best pilot ever desgined to win the formula one'
+		);
+		expect(driver.dateOfBirth).toBe('1990-01-26');
+		expect(driver.nationality).toBe('Mexican');
+	});
+	it('should to be a unique driver with the same name and lastname', async () => {
+		await expect(Driver.create(driverObject)).rejects.toThrow();
+	});
+	it('should not create a driver without any property empty', async () => {
+		for (const key in driverObject) {
 			await expect(
-				Driver.build({
-					name: 'Max',
-					lastName: 'Verstappen',
-				}).isUniqueNameAndLastName('Max')
-			).resolves.not.toThrow();
+				Driver.create({ ...driverObject, [key]: '' })
+			).rejects.toThrow();
+		}
+	});
+});
+
+describe('Team model', () => {
+	beforeAll(async () => {
+		await conn.sync({ force: true });
+	});
+
+	it('should create a new team', async () => {
+		const team = await Team.create({
+			name: 'Mercedes',
 		});
+
+		expect(team.id).toBeDefined();
+		expect(team.name).toBe('Mercedes');
+	});
+
+	it('should not create a team without a name', async () => {
+		await expect(Team.create({})).rejects.toThrow();
 	});
 });

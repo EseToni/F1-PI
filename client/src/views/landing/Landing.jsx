@@ -21,9 +21,9 @@ const Landing = () => {
 				</header>
 				<h3>
 					¡Bienvenido al mundo de la Fórmula 1 en tu propia sala de estar! ¿Eres
-					un apasionado de las carreras? Aquí te llevamos al corazón del mundo
+					un apasionado de las carreras? Aquí te llevamos al mundo
 					de la Fórmula 1, donde podrás explorar todos los detalles de tus
-					pilotos favoritos y diseñar tu propio piloto de F1 personalizado.
+					pilotos favoritos y diseñar tu propio piloto de F1.
 					¿Listo para conocer a tus héroes en la pista y dar vida a tu piloto
 					soñado? ¡Adéntrate en el emocionante universo de la F1!
 				</h3>

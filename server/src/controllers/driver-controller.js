@@ -39,8 +39,7 @@ class DriverController {
 			}
 			const driverDb = await Driver.findByPk(idDriver);
 			if (driverDb) {
-				// Obtener solo el nombre del equipo y unirlos
-				const teams = await driverDb.getTeams();
+				const teams = await driverDb.getTeams(); // Obtener solo el nombre del equipo y unirlos
 				driverDb.dataValues.teams = teams.map((team) => team.name);
 				return driverDb;
 			}
@@ -85,18 +84,20 @@ class DriverController {
 		try {
 			const existDriver = await findOutName(driver.name, driver.lastName);
 			if (existDriver) return existDriver;
-
 			const teams = await Promise.all(
 				driver.teams.map(async (team) => {
+					const teamName = team.trim();
 					var newTeam = await Team.findOne({
 						where: {
 							name: {
-								[Op.iLike]: team,
+								[Op.iLike]: `%${teamName}%`,
 							},
 						},
 					});
-					if (!newTeam) {
-						newTeam = await Team.create({ name: team });
+					if (newTeam == null) {
+						newTeam = await Team.create({
+							name: teamName,
+						});
 					}
 					return newTeam;
 				})

@@ -1,6 +1,5 @@
 const request = require('supertest');
 const server = require('../server');
-const DriverHandler = require('../handlers/driver-handler');
 const DriverController = require('../controllers/driver-controller');
 
 describe('DriverRouter', () => {
@@ -58,4 +57,5 @@ describe('DriverRouter', () => {
 			expect(response.status).toBe(400);
 		});
 	});
+
 });

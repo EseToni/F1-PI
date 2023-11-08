@@ -5,10 +5,6 @@ const getDriversApi = async (id, name) => {
 	if (id) {
 		URL += `/${id}`;
 	}
-	// if (name) {
-	// 	name = name.trim().charAt(0).toUpperCase() + name.slice(1);
-	// 	URL += `?name.forename=${name}`;
-	// }
 	try {
 		const { data } = await axios.get(URL);
 		if (id) {
@@ -24,7 +20,7 @@ const getDriversApi = async (id, name) => {
 				description: data.description,
 				nationality: data.nationality,
 				dateOfBirth: data.dob,
-				teams: data.teams?.split(','),
+				teams: data.teams?.split(',').map((team) => team.trim()),
 			};
 		}
 		var drivers = data.map((driver) => {
@@ -32,6 +28,7 @@ const getDriversApi = async (id, name) => {
 				driver.image.url =
 					'https://www.pngitem.com/pimgs/m/421-4212617_person-placeholder-image-transparent-hd-png-download.png';
 			}
+
 			return {
 				id: driver.id,
 				name: driver.name.forename,
@@ -40,7 +37,7 @@ const getDriversApi = async (id, name) => {
 				description: driver.description,
 				nationality: driver.nationality,
 				dateOfBirth: driver.dob,
-				teams: driver.teams?.split(','),
+				teams: driver.teams?.split(',').map((team) => team.trim()),
 			};
 		});
 		if (name) {

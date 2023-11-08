@@ -8,7 +8,7 @@ const findOutName = async (name, lastName) => {
 				driver.name.toLowerCase() === name.toLowerCase() &&
 				driver.lastName.toLowerCase() === lastName.toLowerCase()
 		);
-		if (driver) return { error: 'El conductor ya existe' };
+		if (driver) return { error: 'Ya existe un piloto con ese nombre y apellido' };
 	} catch (error) {
 		return null;
 	}
