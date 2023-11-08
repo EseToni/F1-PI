@@ -50,7 +50,7 @@ const getDriversApi = async (id, name) => {
 		}
 		return drivers;
 	} catch (error) {
-		console.log({ error: error.message });
+		return null;
 	}
 };
 

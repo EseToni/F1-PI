@@ -14,7 +14,7 @@ import {
 	actionOriginDetails,
 } from '../../redux/slices/sliceFilter';
 
-const Filters = ({ isDarkMode }) => {
+const Filters = () => {
 	const dispatch = useDispatch();
 	const teams = useSelector((state) => state.driverReducer.teams);
 	const originFilterActive = useSelector(
@@ -33,8 +33,9 @@ const Filters = ({ isDarkMode }) => {
 	const [openDetailsOrigin, setOpenDetailsOrigin] = useState(originDetails);
 
 	useEffect(() => {
-		dispatch(actionFetchTeams());
-	}, [dispatch]);
+		if(teams.length === 0)
+			dispatch(actionFetchTeams());
+	}, [dispatch, teams.length]);
 	useEffect(() => {
 		setOpenDetailsTeams(teamsDetails);
 	}, [teamsDetails]);

@@ -1,11 +1,12 @@
 import styles from './styles.module.css';
-import { actionCreateDriver } from '../../redux/actions/actionForm';
+import { actionCreateDriver} from '../../redux/actions/actionForm';
 import { useSelector, useDispatch } from 'react-redux';
 import useErrorsForm from '../../hooks/useErrorsForm';
 import { postDriver } from '../../helpers/postDriver';
 import { isError } from '../../helpers/validateForm';
 import { useState } from 'react';
-import { actionFetchAllDrivers } from '../../redux/actions/actionsDrivers';
+import { actionFetchAllDrivers} from '../../redux/actions/actionsDrivers';
+import { actionFetchTeams } from '../../redux/actions/actionsFilterSort';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../../theme/ThemeProvider';
 
@@ -39,7 +40,7 @@ const FormDriver = () => {
 			const driver = await postDriver(createDriver);
 			if (driver.error) {
 				setStatus(true);
-				setMessage(driver.error.split(':')[1]);
+				setMessage(driver.error);
 				setTimeout(() => {
 					setStatus(false);
 					setMessage('');
@@ -48,6 +49,7 @@ const FormDriver = () => {
 				setStatus(true);
 				setMessage('Piloto creado correctamente, redireccionando...');
 				dispatch(actionFetchAllDrivers());
+				dispatch(actionFetchTeams());
 				for (const key in createDriver) {
 					dispatch(actionCreateDriver({ name: key, value: '' }));
 				}

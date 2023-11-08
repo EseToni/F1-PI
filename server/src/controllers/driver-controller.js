@@ -2,6 +2,7 @@ const { Driver, Team } = require('../db.js');
 const { Op } = require('sequelize');
 const fs = require('node:fs/promises');
 const { getDriversApi, UUIDVALID } = require('../helpers/fetchApi.js');
+const { findOutName } = require('../helpers/findOutName.js');
 
 class DriverController {
 	constructor() {}
@@ -13,7 +14,7 @@ class DriverController {
 			if (driversDb) {
 				await Promise.all(
 					driversDb.map(async (driver) => {
-						const teams = await driver.getTeams(); 
+						const teams = await driver.getTeams();
 						driver.dataValues.teams = teams.map((team) => team.name); // Guardar los nombres de los equipos en el objeto driver
 						return driver;
 					})
@@ -29,12 +30,12 @@ class DriverController {
 
 	static async getDriverById(idDriver) {
 		try {
-			const driverApi = await getDriversApi(idDriver);
+			const driverApi = await getDriversApi(idDriver, null);
 			if (driverApi) {
 				return driverApi;
 			}
 			if (!UUIDVALID(idDriver)) {
-				return { error: 'No se encontró el conductor' };
+				throw { error: 'No se encontró el conductor' };
 			}
 			const driverDb = await Driver.findByPk(idDriver);
 			if (driverDb) {
@@ -43,7 +44,7 @@ class DriverController {
 				driverDb.dataValues.teams = teams.map((team) => team.name);
 				return driverDb;
 			}
-			return { error: 'No se encontró el conductor' };
+			throw { error: 'No se encontró el conductor' };
 		} catch (error) {
 			throw Error(error.message);
 		}
@@ -65,7 +66,7 @@ class DriverController {
 			const driversWithTeams = await Promise.all(
 				driversDb.map(async (driver) => {
 					const teams = await driver.getTeams();
-					driver.dataValues.teams = teams.map((team) => team.name); 
+					driver.dataValues.teams = teams.map((team) => team.name);
 					return driver;
 				})
 			);
@@ -82,15 +83,27 @@ class DriverController {
 
 	static async postDrivers(driver) {
 		try {
+			const existDriver = await findOutName(driver.name, driver.lastName);
+			if (existDriver) return existDriver;
+
 			const teams = await Promise.all(
 				driver.teams.map(async (team) => {
-					const [newTeam] = await Team.findOrCreate({ where: { name: team } }); //Buscamos o creamos el equipo, y utilizamos los corchetes para
-					return newTeam; //coger el primer valor que devuelve findOrCreate [team, boolean]
+					var newTeam = await Team.findOne({
+						where: {
+							name: {
+								[Op.iLike]: team,
+							},
+						},
+					});
+					if (!newTeam) {
+						newTeam = await Team.create({ name: team });
+					}
+					return newTeam;
 				})
 			);
 
 			const newDriver = await Driver.create(driver);
-			// Establece la relación entre el conductor y los equipos
+
 			await newDriver.addTeams(teams);
 			const driverTeams = await newDriver.getTeams();
 			const teamsNames = driverTeams.map((team) => team.name);

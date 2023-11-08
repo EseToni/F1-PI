@@ -7,7 +7,7 @@ const FilterSortMain = () => {
 
 	return (
 		<aside className={`${borderClass} ${styles.aside}`}>
-			<Filters isDarkMode={isDarkMode} />
+			<Filters />
 		</aside>
 	);
 };

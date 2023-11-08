@@ -16,6 +16,7 @@ const DriverDetail = () => {
 		teams,
 		nationality,
 	} = useGetDriver({ driverId });
+	
 	const teamsArray = teams ? teams : ['Ninguna'];
 	const biografy = description ? description : 'No hay biografía disponible';
 	const radiantClass = isDarkMode ? styles.darkGradient : styles.normalGradient;
