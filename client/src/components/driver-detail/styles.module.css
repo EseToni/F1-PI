@@ -80,3 +80,32 @@
     background: linear-gradient(120deg, #ffffff 40%, rgba(203, 203, 203, 0.67) 70%);
     box-shadow: 0px 40px 40px 5px rgba(175, 175, 175, 0.531);
 }
+
+@media screen and (max-width:768px) {
+    .containerArticle{
+        flex-direction: column;
+    }
+    .button{
+        padding: 1.2vw 2.4vw;
+        font-size: 1.5vw;
+    }
+    .footer h3{
+        height: 50vw;
+    }
+    .header{
+        text-align: center;
+        align-items: center;
+    }
+    .name{
+        font-size: 5.5vh;
+    }
+    .header h2{
+        font-size: 2vh;
+    }
+    .containerNav{
+        text-align: center;
+    }
+    .containerNav h1{
+        font-size: 3vw;
+    }
+}

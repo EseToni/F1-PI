@@ -2,7 +2,7 @@ import { esUUID } from '../../helpers/filterUUID';
 
 export const actionFetchTeams = () => {
 	return async (dispatch) => {
-		const data = await fetch('http://localhost:3001/teams');
+		const data = await fetch('http://192.168.140.73:3001/teams');
 		const teams = await data.json();
 		dispatch({
 			type: 'GET_TEAMS',
@@ -26,7 +26,6 @@ export const actionSort = () => {
 		type: 'SORTS_FILTER',
 	};
 };
-
 export const actionActiveTeams = (active) => {
 	return {
 		type: 'ACTIVE_TEAMS',

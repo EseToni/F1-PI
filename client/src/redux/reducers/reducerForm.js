@@ -23,6 +23,14 @@ const reducerForm = (state = initialState, { type, payload }) => {
                     [payload.name] : payload.value
                 }
             }
+        case 'CREATE_DRIVER_TEAMS':
+            return {
+                ...state,
+                createDriver : {
+                    ...state.createDriver,
+                    teams : [...state.createDriver.teams, payload.value]
+                }
+            }
         case 'ERRORS_FORM':
             return {
                 ...state,

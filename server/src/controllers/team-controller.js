@@ -1,6 +1,5 @@
 const { getAllTeams } = require('../helpers/fetchApi');
 const { Team } = require('../db.js');
-const { Op } = require('sequelize');
 class TeamController {
 	static async getTeams() {
 		try {

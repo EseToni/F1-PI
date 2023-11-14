@@ -64,3 +64,20 @@
 .linkActive {
 	cursor: auto;
 }
+
+
+@media screen and (max-width: 768px) {
+	.container {
+		grid-column: 1/3;
+	}
+	.containerChild{
+		padding: 1.5vw 2vw;
+		
+		border-radius: 1vw;
+	}
+	.pageLink {
+		font-size: 3vw;
+		padding: 1vw 2vw;
+		border-radius: 1vw;
+	}
+}

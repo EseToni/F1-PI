@@ -52,6 +52,14 @@
 	transition: all 0.5s ease-in-out;
 	background: linear-gradient(180deg, #ffffff 0%, rgba(203, 203, 203, 0.253) 0%);
 }
+.normal-bg-white ul {
+	transition: all 0.5s ease-in-out;
+	background-color: rgba(203, 203, 203, 0.253);
+}
+.normal-bg-white li{
+	transition: all 0.5s ease-in-out;
+	color: #1e1e2d;
+}
 
 /* Fondos en Modo Oscuro */
 .dark-bg-night-blue {
@@ -100,6 +108,14 @@
 .dark-bg-night-blue textarea {
 	transition: all 0.5s ease-in-out;
     background: linear-gradient(180deg, #1e1e2d 0%, rgba(43, 43, 61, 0.866) 0%);
+	color: #f6f6f6;
+}
+.dark-bg-night-blue ul{
+	transition: all 0.5s ease-in-out;
+	background-color: rgba(43, 43, 61, 0.866);
+}
+.dark-bg-night-blue li {
+	transition: all 0.5s ease-in-out;
 	color: #f6f6f6;
 }
 .dark-bg-dark-gray {

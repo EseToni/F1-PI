@@ -8,8 +8,8 @@
 	width: 90%;
 	height: 100%;
 	border-radius: 0.5vw;
-	padding: 1vw 0vw; 
-	gap:0.3vw;
+	padding: 1vw 0vw;
+	gap: 0.3vw;
 }
 
 .containerInput {
@@ -34,7 +34,7 @@
 	font-size: 1vw;
 	opacity: 0;
 }
-.containerInput input:focus + span{
+.containerInput input:focus + span {
 	font-size: 1vw;
 	opacity: 1;
 }
@@ -63,44 +63,48 @@
 	font-size: 1vw;
 	opacity: 0;
 }
-.containerDescription textarea:focus + span{
+.containerDescription textarea:focus + span {
 	font-size: 1vw;
 	opacity: 1;
 }
-.containerButton{
-    grid-column: 1/3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.containerButton {
+	grid-column: 1/3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 }
 .inputError {
-    border: none;
+	border: none;
 	border-bottom: 0.2vw solid red;
 	border-radius: 0.3vw;
 }
 .input {
-    border: none;
+	border: none;
 	border-bottom: 0.2vw solid #00ff48;
 	border-radius: 0.3vw;
 }
-.text{
-    border: none;
-    border: 0.2vw solid #00ff48;
+.text {
+	border: none;
+	border: 0.2vw solid #00ff48;
 }
-.textError{
-    border: none;
-    border: 0.2vw solid red;
+.textError {
+	border: none;
+	border: 0.2vw solid red;
 }
-.darkGradient{
-    transition: all 0.5s ease-in-out;
-    background: linear-gradient(180deg, #1e1e2d 0%, rgba(43, 43, 61, 0.866) 80%);
-    box-shadow: 0.2vw 0.2vw 0.5vw #2c2c3da5;
+.darkGradient {
+	transition: all 0.5s ease-in-out;
+	background: linear-gradient(180deg, #1e1e2d 0%, rgba(43, 43, 61, 0.866) 80%);
+	box-shadow: 0.2vw 0.2vw 0.5vw #2c2c3da5;
 }
-.normalGradient{
-    transition: all 0.5s ease-in-out;
-    background: linear-gradient(180deg, #ffffff 00%, rgba(203, 203, 203, 0.825) 80%);
-    box-shadow: 0.2vw 0.2vw 0.5vw rgba(175, 175, 175, 0.531);
+.normalGradient {
+	transition: all 0.5s ease-in-out;
+	background: linear-gradient(
+		180deg,
+		#ffffff 00%,
+		rgba(203, 203, 203, 0.825) 80%
+	);
+	box-shadow: 0.2vw 0.2vw 0.5vw rgba(175, 175, 175, 0.531);
 }
 .submission {
 	display: flex;
@@ -108,9 +112,9 @@
 	justify-content: center;
 	padding: 2.5vw;
 	border-radius: 0.5vw;
-	box-shadow: 0.2vw 0.2vw 0.5vw #2c2c3da5
+	box-shadow: 0.2vw 0.2vw 0.5vw #2c2c3da5;
 }
-.submission h3{
+.submission h3 {
 	font-size: 2vw;
 	text-shadow: 0.1vw 0.1vw 0.5vw #2c2c3da5;
 }
@@ -125,26 +129,163 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-  }
+}
 
 .containerButton button {
 	margin: 1vw 0vw 0vw 0vw;
-    padding: 0.8vw 1.2vw;
-    border: none;
-    cursor: pointer;
-    border-radius: 0.2vw;
-    font-family: 'F1-BOLD';
-    font-size: 1.2vw;
+	padding: 0.8vw 1.2vw;
+	border: none;
+	cursor: pointer;
+	border-radius: 0.2vw;
+	font-family: 'F1-BOLD';
+	font-size: 1.2vw;
 	justify-content: center;
 }
 .containerButton button:hover {
 	transform: scale(1.1);
 	box-shadow: 0vw 0vw 1vw #b3b3b35b;
 }
-.containerButton button:disabled{
+.containerButton button:disabled {
 	cursor: not-allowed;
 }
 .containerButton button:hover:disabled {
-	transform: scale(1.0);
+	transform: scale(1);
 	box-shadow: none;
+}
+
+/*--------------ListTeams-----------------*/
+
+.containerList {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	align-items: center;
+	background-color: red;
+	width: 50%;
+}
+.containerList img {
+	cursor: pointer;
+	position: absolute;
+	width: 2vw;
+	height: 2vw;
+	border-radius: 50%;
+	top: -2.2vw;
+	margin: 0.5vw;
+}
+.ul {
+	padding: 0.5vw 0.5vw 0vw 1.5vw;
+	position: absolute;
+	border-radius: 0.5vw;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	left: 19vw;
+	bottom: -5.5vw;
+	height: 18vw;
+	z-index: 100;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+.ul::-webkit-scrollbar {
+	background-color: #32324800;
+	width: 0.5vw;
+}
+.ul::-webkit-scrollbar-thumb {
+	background-color: #000000c2;
+	border-radius: 1vw;
+}
+.li {
+	margin: 0.2vw 0vw;
+	list-style-type: '- ';
+	font-family: 'F1-BOLD';
+	cursor: pointer;
+}
+.li:hover {
+	transform: scale(1.1);
+	color: #00ff48;
+}
+.animateClick {
+	animation: animateClick 0.5s linear;
+}
+.animateClickReverse {
+	animation: animateClickReverse 0.5s linear;
+}
+@media screen and (max-width: 768px) {
+	.form {
+		display: flex;
+		flex-direction: column;
+	}
+	.containerInput {
+		height: 10vw;
+		margin: 1vw;
+	}
+	.containerInput label {
+		font-size: 3vw;
+	}
+	.containerInput input {
+		width: 80%;
+		font-size: 3vw;
+		padding: 1.5vw 0.5vw;
+		text-align: center;
+		margin: 0.4vw;
+	}
+	.containerInput input:focus + span {
+		font-size: 2vw;
+		opacity: 1;
+	}
+	.containerDescription {
+		height: 15vw;
+	}
+	.containerDescription textarea {
+		font-size: 2vw;
+	}
+	.containerDescription label {
+		font-size: 3vw;
+	}
+	.containerDescription textarea:focus + span {
+		font-size: 2vw;
+		opacity: 1;
+	}
+
+	/*--------------ListTeams-----------------*/
+	.containerList{
+		width: 100%;
+	}
+	.containerList img{
+		width: 5vw;
+		height: 5vw;
+		left: 85%;
+		top:-5vw;
+	}
+	.ul{
+		height: 40vw;
+	}
+	.li{
+		font-size: 3vw;
+	}
+}
+
+@keyframes animateClick {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+@keyframes animateClickReverse {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
 }

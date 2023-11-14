@@ -34,3 +34,9 @@
 .containerMain{
     padding: 0.4vw 1vw;
 }
+
+@media screen and (max-width:768px) {
+    .containerGrid{
+        height: 12vw;
+    }
+}

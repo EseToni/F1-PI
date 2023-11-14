@@ -1,7 +1,9 @@
 .aside{
 	margin-left: 1vw;
 }
-
+.aside h2{
+	font-size: 2vw;
+}
 .summary {
 	font-size: 1vw;
 	margin-top: 0.5vw;
@@ -33,4 +35,16 @@
 	background-color: #000000b0;
     border-radius: 5px;
     height: 3vw;
+}
+@media screen and (max-width: 768px) {
+	.aside h2{
+		font-size: 2.8vw;
+	}
+	.summary{
+		font-size: 2.2vw;
+	}
+	.inputContainerTeams{
+		direction: ltr;
+		align-items: flex-start;
+	}
 }

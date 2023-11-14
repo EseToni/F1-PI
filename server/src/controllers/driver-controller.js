@@ -1,6 +1,5 @@
 const { Driver, Team } = require('../db.js');
 const { Op } = require('sequelize');
-const fs = require('node:fs/promises');
 const { getDriversApi, UUIDVALID } = require('../helpers/fetchApi.js');
 const { findOutName } = require('../helpers/findOutName.js');
 
@@ -27,7 +26,6 @@ class DriverController {
 			throw Error(error.message);
 		}
 	}
-
 	static async getDriverById(idDriver) {
 		try {
 			const driverApi = await getDriversApi(idDriver, null);
@@ -48,7 +46,6 @@ class DriverController {
 			throw Error(error.message);
 		}
 	}
-
 	static async getDriversByName(name) {
 		try {
 			const driversApi = await getDriversApi(null, name);
@@ -79,7 +76,6 @@ class DriverController {
 			throw Error(error.message);
 		}
 	}
-
 	static async postDrivers(driver) {
 		try {
 			const existDriver = await findOutName(driver.name, driver.lastName);
@@ -111,6 +107,19 @@ class DriverController {
 			newDriver.dataValues.teams = teamsNames;
 
 			return newDriver;
+		} catch (error) {
+			throw Error(error.message);
+		}
+	}
+	static async deleteDriverById(idDriver) {
+		try {
+			const driver = await Driver.findByPk(idDriver);
+
+			if (!driver) throw { error: 'No se encontró el Piloto' };
+
+			await driver.destroy();
+
+			return { message: 'Piloto eliminado correctamente' };
 		} catch (error) {
 			throw Error(error.message);
 		}

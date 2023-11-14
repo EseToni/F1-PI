@@ -25,3 +25,10 @@
 .button:disabled{
     cursor: auto;
 }
+
+@media screen and (max-width:768px) {
+    .button{
+        padding: 1vw 2vw;
+        font-size: 1.3vw;
+    }
+}

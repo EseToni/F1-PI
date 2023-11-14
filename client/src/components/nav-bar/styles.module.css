@@ -6,6 +6,12 @@
     height: 100%;
     justify-content: space-evenly;
 }
+.containerChild{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
 .container h1{
     font-size: 2.2vw;
     padding: 1vw 2vw;
@@ -49,4 +55,18 @@
 
 .button:disabled{
     cursor: context-menu;
+}
+
+@media screen and (max-width: 768px) {
+    .button{
+        font-size: 2.5vw;
+        padding: 0.8vw 1.5vw;
+    }
+    .container{
+        flex-direction: column-reverse;
+    }
+    .containerChild{
+        width: 100%;
+        justify-content: space-around;
+    }
 }

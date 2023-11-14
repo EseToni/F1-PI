@@ -42,3 +42,17 @@
     box-shadow: 0vw 0vw 0.4vw 0.1vw rgba(87, 87, 87, 0.552);
 }
 
+@media screen and (max-width: 768px) {
+    .containerGrid {
+        display: flex;
+        flex-direction: column;
+        flex-direction: column-reverse;
+    }
+    .button{
+        padding: 1vw 1.5vw;
+        font-size: 2vw;
+    }
+    .containerNav h1{
+        font-size: 5vw;
+    }
+}

@@ -26,7 +26,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
 				...state,
 				driversInmutable: payload,
 				drivers: payload,
-			};
+			};		
 		case 'REFRESH_DRIVERS':
 			return {
 				...state,

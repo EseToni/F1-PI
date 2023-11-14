@@ -1,16 +1,22 @@
 .containerGrid {
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr 1fr 1fr ;
-    grid-template-rows: repeat(3, 1fr) auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr) auto;
     gap: 1.5vw 4vw;
     justify-content: center;
     align-self: center;
 }
-
 .containerError {
     align-self: center;
     justify-self: center;
     height: 170vh;
 }
 
+@media screen and (max-width :768px) {
+    .containerGrid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, 1fr) auto;
+    }
+}

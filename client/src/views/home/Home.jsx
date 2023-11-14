@@ -1,5 +1,6 @@
 import NavBar from '../../components/nav-bar/NavBar';
 import styles from './styles.module.css';
+import { Link } from 'react-router-dom';
 import { useTheme } from '../../theme/ThemeProvider';
 import { Outlet } from 'react-router-dom';
 import F1 from '../../assets/icons/F1.svg';
@@ -11,8 +12,10 @@ const Home = () => {
 		<div className={styles.containerMain}>
 			<div className={`${styles.containerGrid}`}>
 				<header className={`${borderClass} ${styles.header}`}>
-					<img src={F1} alt='F1' className={styles.icon} />
-					<h1 className={styles.title}>SpeedMaster</h1>
+						<img src={F1} alt='F1' className={styles.icon} />
+					<Link to={'/'} className='customLink'>
+						<h1 className={styles.title}>SpeedMaster</h1>
+					</Link>
 				</header>
 				<NavBar />
 			</div>

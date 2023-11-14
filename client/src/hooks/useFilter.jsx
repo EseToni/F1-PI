@@ -16,19 +16,11 @@ import { isActive } from '../helpers/isFilterActive';
 const useFilter = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const dispatch = useDispatch();
-	const driversInmutable = useSelector(
-		(state) => state.driverReducer.driversInmutable
-	);
-	const originFilterActive = useSelector(
-		(state) => state.driverReducer.originFilterActive
-	);
+	const driversInmutable = useSelector((state) => state.driverReducer.driversInmutable);
+	const originFilterActive = useSelector((state) => state.driverReducer.originFilterActive);
 	const searchInput = useSelector((state) => state.driverReducer.searchInput);
-	const orderSortActive = useSelector(
-		(state) => state.driverReducer.orderSortActive
-	);
-	const teamsFilterActive = useSelector(
-		(state) => state.driverReducer.teamsFilterActive
-	);
+	const orderSortActive = useSelector((state) => state.driverReducer.orderSortActive);
+	const teamsFilterActive = useSelector((state) => state.driverReducer.teamsFilterActive);
 
 	useEffect(() => {
 		const fetchData = async () => {

@@ -8,18 +8,19 @@ const NavBar = () => {
 	const { isDarkMode, toggleTheme } = useTheme();
 	const location = useLocation();
 	const borderClass = isDarkMode ? styles.darkBorder : styles.normalBorder;
-	const isInCreate = location.pathname === '/home/create-driver'
-
+	const isInCreate = location.pathname === '/home/create-driver';
 
 	return (
 		<nav className={`${styles.container} ${borderClass}`}>
-			<SearchBar  isDarkMode={isDarkMode}/>
-			<Link className='customLink' to='/home/create-driver'>
-				<button className={styles.button} disabled={isInCreate}>
-					CREAR TU PILOTO
-				</button>
-			</Link>
-			<ToggleDarkMode isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+			<SearchBar isDarkMode={isDarkMode} />
+			<div className={styles.containerChild}>
+				<Link className='customLink' to='/home/create-driver'>
+					<button className={styles.button} disabled={isInCreate}>
+						CREAR TU PILOTO
+					</button>
+				</Link>
+				<ToggleDarkMode isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+			</div>
 		</nav>
 	);
 };

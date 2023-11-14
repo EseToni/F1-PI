@@ -108,3 +108,38 @@
     animation: pulse 2s infinite;
     background-color: rgb(163, 163, 163);
 }
+
+
+@media screen and (max-width:768px) {
+    .article{
+        width: 30vw;
+        height: 50vw;
+    }
+    .normalGradient .img{
+        width: 30vw;
+        height: 35vw;
+    }
+    .darkGradient .img{
+        width: 30vw;
+        height: 35vw;
+    }
+    .name{
+        width: 20vw;
+        height: 2vw;
+    }
+    .teams{
+        margin-top: 0.5vw;
+    }
+    .escuderias{
+        margin: 0.5vw 0vw;
+        font-size: 1.8vw;
+    }
+    .darkGradient .teamName{
+        width: 22vw;
+        height: 0.8vw;
+    }
+    .normalGradient .teamName{
+        width: 22vw;
+        height: 0.8vw;
+    }
+}

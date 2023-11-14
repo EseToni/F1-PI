@@ -20,5 +20,10 @@
     display: grid;
     align-items: start;
     grid-template-columns: 25% 75%;
-    
+}
+
+@media screen and (max-width:768px) {
+    .container h1{
+        font-size:3vw;
+    }
 }

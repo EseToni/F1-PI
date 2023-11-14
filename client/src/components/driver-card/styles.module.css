@@ -100,3 +100,39 @@
     padding: 0.15vw;
     font-size: 0.8vw;
 }
+
+@media screen and (max-width:768px) {
+    .article{
+        width: 30vw;
+        height: 50vw;
+    }
+    .headerOverlay{
+        margin: 0vw;
+        padding: 0vw;
+    }
+    .name{
+        font-size: 2vw;
+        min-height: 1.5vw;
+        max-height: 5vw;
+        padding: 0.8vw 2vw;
+        max-width: 26vw;
+        text-align: center;
+        margin-bottom: 1.3vw ;
+        padding-bottom: 0.6vw;
+    }
+    .img{
+        width: 30vw;
+        height: 35vw;
+    }
+    .teams{
+        margin-top: 0.5vw;
+    }
+    .escuderias{
+        margin: 0.5vw 0vw;
+        font-size: 1.8vw;
+    }
+    .teamName{
+        padding: 0.3vw;
+        font-size: 1.5vw;
+    }
+}

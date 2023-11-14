@@ -7,7 +7,12 @@ export const actionCreateDriver = (payload) => {
         payload
     }
 }
-
+export const actionCreateDriverTeams = (payload) => {
+    return {
+        type: 'CREATE_DRIVER_TEAMS',
+        payload
+    }
+}
 export const actionErrorsForm = (payload) => {
 
     return {

@@ -55,3 +55,14 @@
 .container h3{
     animation: none;
 }
+@media screen and (max-width: 768px) {
+	.container {
+		width: 50%;
+		z-index: 1100;
+		animation: none;
+		opacity: 0;
+	}
+	.container h3{
+		font-size: 3vw;
+	}
+}

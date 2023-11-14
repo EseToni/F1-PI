@@ -46,6 +46,7 @@ const MapDrivers = () => {
 			{isLoading ? (
 				<div className={`${styles.containerGrid}`}>
 					{SKELETON_CARDS.map((key) => <SkeletonCard key={key} isDarkMode={isDarkMode}/>)}
+					<PaginateBottom isDarkMode={isDarkMode}/>
 				</div>
 			) : error ? (
 				<div className={`${styles.containerError}`}>

@@ -1,11 +1,12 @@
 import styles from './styles.module.css';
-import { actionCreateDriver} from '../../redux/actions/actionForm';
+import { actionCreateDriver } from '../../redux/actions/actionForm';
 import { useSelector, useDispatch } from 'react-redux';
+import ListTeams from './ListTeams';
 import useErrorsForm from '../../hooks/useErrorsForm';
 import { postDriver } from '../../helpers/postDriver';
 import { isError } from '../../helpers/validateForm';
-import { useState } from 'react';
-import { actionFetchAllDrivers} from '../../redux/actions/actionsDrivers';
+import { useState,useRef} from 'react';
+import { actionFetchAllDrivers } from '../../redux/actions/actionsDrivers';
 import { actionFetchTeams } from '../../redux/actions/actionsFilterSort';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../../theme/ThemeProvider';
@@ -18,6 +19,7 @@ const FormDriver = () => {
 	const [status, setStatus] = useState(false);
 	const [message, setMessage] = useState('');
 	const { isDarkMode } = useTheme();
+	const inputRef = useRef(null);
 	const classGradient = isDarkMode
 		? styles.darkGradient
 		: styles.normalGradient;
@@ -133,9 +135,16 @@ const FormDriver = () => {
 					{errorsForm.dateOfBirth && <span>{errorsForm.dateOfBirth}</span>}
 				</div>
 				<div className={styles.containerInput}>
-					<label>Escuderias</label>
+					<label>Escuderias </label>
+					<ListTeams
+						isDarkMode={isDarkMode}
+						driverTeam={createDriver.teams}
+						action={actionCreateDriver}
+						inputRef={inputRef}
+					/>
 					<input
 						value={createDriver.teams}
+						ref={inputRef}
 						name='teams'
 						onChange={handleChange}
 						autoComplete='off'

@@ -51,3 +51,18 @@
 	margin-left: 0.8vw;
 	width: 2.5vw;
 }
+
+@media screen and (max-width: 768px) {
+	.container img {
+		width: 4vw;
+	}
+	.darkModeToggle{
+		width: 8vw;
+		height: 4vw;
+		border-radius: 4vw;
+	}
+	.darkModeToggle label{
+		width: 4vw;
+		height: 4vw;
+	}
+}
