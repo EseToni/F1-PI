@@ -4,7 +4,7 @@ import { useTheme } from '../../theme/ThemeProvider';
 import BackGroundVideo from '../../components/background-video/BackGroundVideo';
 import F1 from '../../assets/icons/F1.svg';
 import styles from './styles.module.css';
-import ToggleDarkMode from '../../components/toggle-dark-mode/toggleDarkMode';
+import ToggleDarkMode from '../../components/toggle-dark-mode/ToggleDarkMode.jsx';
 import F1wall from '../../assets/f1Wall.png';
 const Landing = () => {
 	const { isDarkMode, toggleTheme } = useTheme();
