@@ -2,7 +2,7 @@ import styles from './styles.module.css';
 import { useDispatch } from 'react-redux';
 import { actionSearchInput } from '../../redux/actions/actionsDrivers';
 import searchNormal from '../../assets/icons/biSearchDark.svg';
-import searchDark from '../../assets/icons/biSearchNormal.svg';
+import searchDark from '../../assets/icons/BiSearchNormal.svg';
 
 const SearchBar = ({ isDarkMode }) => {
 	const dispatch = useDispatch();
