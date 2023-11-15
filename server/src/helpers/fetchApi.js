@@ -1,13 +1,14 @@
-const axios = require('axios');
+const fs = require('fs').promises;
+const path = require('path');
 
 const getDriversApi = async (id, name) => {
-	let URL = `http://localhost:5000/drivers`;
-	if (id) {
-		URL += `/${id}`;
-	}
+	let filePath = path.join(__dirname, '../../api', 'db.json');
 	try {
-		const { data } = await axios.get(URL);
+		let fileData = await fs.readFile(filePath, 'utf-8');
+		let data = JSON.parse(fileData);
+		data = data.drivers;
 		if (id) {
+			data = data.find((driver) => driver.id == id);
 			if (data.image.url.length === 0) {
 				data.image.url =
 					'https://www.pngitem.com/pimgs/m/421-4212617_person-placeholder-image-transparent-hd-png-download.png';
