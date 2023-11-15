@@ -36,7 +36,10 @@
 }
 
 @media screen and (max-width:768px) {
+    .title{
+        font-size: 2vw;
+    }
     .containerGrid{
-        height: 12vw;
+        height: 20vw;
     }
 }

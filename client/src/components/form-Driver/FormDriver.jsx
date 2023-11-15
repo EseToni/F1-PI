@@ -50,8 +50,8 @@ const FormDriver = () => {
 			} else {
 				setStatus(true);
 				setMessage('Piloto creado correctamente, redireccionando...');
-				dispatch(actionFetchAllDrivers());
-				dispatch(actionFetchTeams());
+				await dispatch(actionFetchAllDrivers());
+				await dispatch(actionFetchTeams());
 				for (const key in createDriver) {
 					dispatch(actionCreateDriver({ name: key, value: '' }));
 				}

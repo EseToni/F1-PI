@@ -1,5 +1,7 @@
+import { URL } from '../constants/url.js';
+
 export const fetchAllDrivers = async () => {
-    const data = await fetch('http://192.168.140.73:3001/drivers')
-    const drivers = await data.json()
-    return drivers
- }
+	const data = await fetch(`${URL}/drivers`);
+	const drivers = await data.json();
+	return drivers;
+};

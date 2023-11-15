@@ -1,8 +1,8 @@
 import { esUUID } from '../../helpers/filterUUID';
-
+import { URL } from '../../constants/url';
 export const actionFetchTeams = () => {
 	return async (dispatch) => {
-		const data = await fetch('http://192.168.140.73:3001/teams');
+		const data = await fetch(`${URL}/teams`);
 		const teams = await data.json();
 		dispatch({
 			type: 'GET_TEAMS',

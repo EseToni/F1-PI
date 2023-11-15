@@ -1,5 +1,7 @@
+import { URL } from "../constants/url";
+
 export const postDriver = async (driver) => {
-    const response = await fetch('http://192.168.140.73:3001/drivers', {
+    const response = await fetch(`${URL}/drivers`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

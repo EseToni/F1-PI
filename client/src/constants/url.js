@@ -1,0 +1,1 @@
+export const URL = "https://f1-server-express-production-3c39.up.railway.app"
