@@ -1,7 +1,7 @@
 import styles from './styles.module.css';
 import SearchBar from '../search-bar/SearchBar';
 import { Link } from 'react-router-dom';
-import ToggleDarkMode from '../toggle-dark-mode/toggleDarkMode';
+import ToggleDarkMode from '../toggle-dark-mode/ToggleDarkMode.jsx';
 import { useTheme } from '../../theme/ThemeProvider';
 import { useLocation } from 'react-router-dom';
 const NavBar = () => {
