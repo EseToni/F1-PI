@@ -24,7 +24,7 @@ const Landing = () => {
 			<div className={`${bgClass} ${styles.containerToggle}`}>
 				<ToggleDarkMode isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 			</div>
-			{isMobile ? <img src={F1wall} className={styles.imgWall}/> : <BackGroundVideo />}
+			{isMobile ? <img src={F1wall} alt='Formula1' className={styles.imgWall}/> : <BackGroundVideo />}
 			<div className={`${styles.containerChild} ${bgClass}`}>
 				<header className={styles.header}>
 					<img src={F1} alt='F1' />
